@@ -1,7 +1,13 @@
 body {
     background-image: url(../img/fondo_game.jpg);
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
 html{
@@ -26,6 +32,13 @@ button {
     border: none;
 }
 
+.button-exit {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+  
+}
+
 .main-title{
     align-items: center;
     font-size: 40px;
@@ -36,4 +49,28 @@ button {
     2px -2px black,
     -2px  2px black,
     2px  2px black;
+}
+
+/* PRUEBAS de ventanas */
+
+.game-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.game-area {
+    background-color: hsl(0, 2%, 10%);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 65%;
+    box-shadow: 0 0 10px black;
+}
+
+.game-area img {
+    display: block;
+    position: relative;
+    max-width: 100%;
+    border-radius: 5px;
 }
