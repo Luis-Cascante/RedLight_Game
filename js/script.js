@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
-            
+            selectedView: "main-menu",
             inventory: [
                 { name: 'seed1', quantity: 0, img: './img/seed1.png' },
                 { name: 'seed2', quantity: 0, img: './img/seed2.png' },
@@ -27,6 +27,12 @@ const app = Vue.createApp({
             
             
         };
+    },
+    methods:{
+        updateView(selectedView){
+            this.selectedView=selectedView;
+            return this.selectedView;
+        }
     }
 });
 
