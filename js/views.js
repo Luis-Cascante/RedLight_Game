@@ -51,10 +51,52 @@ app.component('views-game',{
             <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
-                    <button v-on:click="updateView('main-menu')"><img src="./img/scythe.png" alt="farm"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/potions.png" alt="potions"></button>
+                    <button v-on:click="updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/store.png" alt="store"></button>
+                    <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
+                    <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-else-if="selectedView === 'store-panel'">
+        <!-- Game Wrapper -->
+        <div class="game-wrapper">
+
+            <!-- Background Image -->
+            <div class="game-area">
+                <img src="./img/store-panel.png" alt="Game Layer">
+            </div>
+
+            <!-- Buttons Panel -->
+            <div class="buttons-container">
+                <div class="buttons-panel">
+                    <button v-on:click="updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
+                    <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
+                    <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
+                    <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-else-if="selectedView === 'cauldron-panel'">
+        <!-- Game Wrapper -->
+        <div class="game-wrapper">
+
+            <!-- Background Image -->
+            <div class="game-area">
+                <img src="./img/caldero.png" alt="Game Layer">
+            </div>
+
+            <!-- Buttons Panel -->
+            <div class="buttons-container">
+                <div class="buttons-panel">
+                    <button v-on:click="updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
+                    <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
+                    <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
                 </div>
             </div>
