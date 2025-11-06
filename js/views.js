@@ -87,7 +87,7 @@ app.component('views-game',{
 
             <!-- Background Image -->
             <div class="game-area">
-                <img src="./img/caldero.png" alt="Game Layer">
+                <img src="./img/cauldron-panel.png" alt="Game Layer">
             </div>
 
             <!-- Buttons Panel -->
