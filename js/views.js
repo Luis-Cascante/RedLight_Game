@@ -66,10 +66,36 @@ app.component('views-game',{
 
             <!-- Background Image -->
             <div class="game-area">
-                <img src="./img/store-panel.png" alt="Game Layer">
+            <img src="img/store-panel.png" alt="store-background">
+            <div class="buy-item-container">
+                <div class="item-buy-description">
+                    <h2>item name</h2>
+                    <p class="item-description">item description</p>
+                    <div class="market-action">
+                        <button class="button-market">buy item</button>
+                        <img class="coin-img" src="img/coin.png" alt="money">
+                        <p class="price">100</p>
+                    </div>
+                </div>
+                <img class="item-buy-img" src="img/itemPocion.png" alt="potion">
             </div>
+            <div class="items-market-container">
+                <img class="items-market" src="img/item-potion1.png" alt="">
+                <img class="items-market" src="img/item-potion2.png" alt="">
+                <img class="items-market" src="img/itemPocion.png" alt="">
+                <img class="items-market" src="img/item-potion1.png" alt="">
+                <img class="items-market" src="img/item-potion2.png" alt="">
+                <img class="items-market" src="img/item-spiderweb.png" alt="">
+                <img class="items-market" src="img/item-potion1.png" alt="">
+                <img class="items-market" src="img/item-potion2.png" alt="">
+                <img class="items-market" src="img/itemPocion.png" alt="">
+                <img class="items-market" src="img/item-potion1.png" alt="">
+                <img class="items-market" src="img/item-potion2.png" alt="">
+                <img class="items-market" src="img/item-spiderweb.png" alt="">
+            </div>
+        </div>
 
-            <!-- Buttons Panel -->
+        <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
                     <button v-on:click="updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
