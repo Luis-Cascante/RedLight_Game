@@ -145,6 +145,8 @@ app.component('views-game',{
         <!-- Game Wrapper -->
         <div class="game-wrapper">
 
+        <!--cauldron-->
+
             <div class="game-area">
             <img src="./img/cauldron-panel.png" alt="Game Layer">
             <div class="potions-container">
