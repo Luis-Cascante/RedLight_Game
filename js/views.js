@@ -5,13 +5,47 @@ app.component('views-game',{
             default: "main-menu",
         }
     },
+    data(){
+        return {
+            activeTool: null
+        }
+    },
     computed: {
         
     },
     methods: {
         updateView(selectedView){
-            this.$emit('selected-view', selectedView)
+            this.$emit("selected-view", selectedView)
+        },
+        
+        selectTool(tool){
+            if(tool === "scythe"){
+                if(this.activeTool === "scythe"){
+
+                    // si ya estaba seleccionado, se desactiva
+                    this.activeTool = null;
+                    document.body.style.cursor = "auto";
+                    this.$emit("tool-selected", null);
+                } else {
+                    // activa el scythe
+                    this.activeTool = "scythe";
+
+                    // res 16 16 
+                    document.body.style.cursor = "url(./img/scythe.png) 16 16, auto";
+                    this.$emit("tool-selected", "scythe");
+                }
+            } else {
+
+                // para otras varas: desactiva la herramienta actual
+                this.activeTool = null;
+                document.body.style.cursor = "auto";
+                this.$emit("tool-selected", tool);
+            }
         }
+    },
+    unmounted(){
+        // restaurar cursor al desmontar el componente
+        document.body.style.cursor = 'auto';
     },
     template: /*html*/ `
     <div v-if="selectedView === 'main-menu'"> 
@@ -51,7 +85,7 @@ app.component('views-game',{
             <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
-                    <button v-on:click="updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
@@ -98,7 +132,7 @@ app.component('views-game',{
         <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
-                    <button v-on:click="updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
@@ -141,7 +175,7 @@ app.component('views-game',{
             <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
-                    <button v-on:click="updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
