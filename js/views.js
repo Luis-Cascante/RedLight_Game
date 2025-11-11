@@ -19,7 +19,7 @@ app.component('views-game', {
         },
 
 
-        // metodo para seleccionar cursor
+        // metodo para seleccionar herramienta
         selectTool(tool) {
 
             if (tool === "scythe") {
@@ -37,25 +37,66 @@ app.component('views-game', {
                     document.body.style.cursor = "url(\"./img/ScytheOnly.png\") 16 16, auto";
                     this.$emit("tool-selected", "scythe");
                 }
+            }
 
-            } // else if(tool === "Cursor1"){
 
-            // desactiva cursor1
-            //if(this.activeTool === "Cursor1"){
-            //    this.activeTool = null;
-            //    document.body.style.cursor = "auto";
-            //    this.$emit("tool-selected", null);
-            //
-            // activa cursor1
-            //} else {
-            //    this.activeTool = "Cursor1";
-            //    document.body.style.cursor = "url(\"./img/Cursor1.png\") 8 8, auto";
-            //    this.$emit("tool-selected", "Cursor1");
-            //}
-            //} 
-        }
+            if (tool === "plant") {
+
+                if (this.activeTool === "plant") {
+                    // desactiva plant
+                    this.activeTool = null;
+                    document.body.style.cursor = "auto";
+                    this.$emit("tool-selected", null);
+                } else {
+                    // activar plant
+                    this.activeTool = "plant";
+                    document.body.style.cursor = "url(\"./img/HandOnly.png\") 16 16, auto";
+                    this.$emit("tool-selected", "plant");
+                }
+
+            }
+
+
+            if (tool === "fertilizer") {
+
+                if (this.activeTool === "fertilizer") {
+                    // desactiva fertilizer
+                    this.activeTool = null;
+                    document.body.style.cursor = "auto";
+                    this.$emit("tool-selected", null);
+                } else {
+                    // activar fertilizer
+                    this.activeTool = "fertilizer";
+                    document.body.style.cursor = "url(\"./img/FertilizerOnly.png\") 16 16, auto";
+                    this.$emit("tool-selected", "fertilizer");
+                }
+
+            }
+
+            if (tool === "bucket") {
+                if (this.activeTool === "bucket") {
+                    // desactiva bucket
+                    this.activeTool = null;
+                    document.body.style.cursor = "auto";
+                    this.$emit("tool-selected", null);
+                } else {
+                    // activar bucket
+                    this.activeTool = "bucket";
+                    document.body.style.cursor = "url(\"./img/BucketOnly.png\") 16 16, auto";
+                    this.$emit("tool-selected", "bucket");
+                }
+            }
+
+            if (tool === "resume") {
+                // desactiva cualquier herramienta em curso
+                this.activeTool = null;
+                document.body.style.cursor = "auto";
+                this.$emit("tool-selected", null);
+            }
     },
     template: /*html*/ `
+
+    <!-- Main Menu Panel -->
     <div v-if="selectedView === 'main-menu'"> 
         <div class="buttons">
             <h1 class="main-title"> RedLight Farm </h1>
@@ -65,6 +106,8 @@ app.component('views-game', {
             <button v-on:click="updateView('main-menu')" class="buttons-style"><img src="./img/signOut-btn.png" alt="signout button"></button>
         </div>
     </div>
+
+    <!-- Instructions Panel -->
     <div v-else-if="selectedView === 'instructions'">
         <div class="game-wrapper">
             <div class="game-area">
@@ -73,6 +116,8 @@ app.component('views-game', {
             </div>
         </div>
     </div>
+
+    <!-- Lore Panel -->
     <div v-else-if="selectedView === 'lore'">
         <div class="game-wrapper">
             <div class="game-area">
@@ -81,7 +126,10 @@ app.component('views-game', {
             </div>
         </div>
     </div>
+    
+    <!-- Game Panel -->
     <div v-else-if="selectedView === 'game-panel'">
+
         <!-- Game Wrapper -->
         <div class="game-wrapper">
 
@@ -93,16 +141,28 @@ app.component('views-game', {
             <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
-                    <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('resume'); updateView('game-panel')"><img src="./img/ResumeBtn.png" alt="resume"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
                 </div>
             </div>
+
+            <!-- Tools Panel (separate container) -->
+            <div class="buttons-container tools-container">
+                <div class="buttons-panel tools-panel">
+                    <button v-on:click="selectTool('scythe')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('plant')"><img src="./img/PlantBtn.png" alt="plant"></button>
+                    <button v-on:click="selectTool('fertilizer')"><img src="./img/FertilizerBtn.png" alt="fertilizer"></button>
+                    <button v-on:click="selectTool('bucket')"><img src="./img/BucketBtn.png" alt="bucket"></button>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- Store Panel -->
     <div v-else-if="selectedView === 'store-panel'">
+
         <!-- Game Wrapper -->
         <div class="game-wrapper">
 
@@ -121,6 +181,8 @@ app.component('views-game', {
                 </div>
                 <img class="item-buy-img" src="img/itemPocion.png" alt="potion">
             </div>
+
+            <!-- Items Market Container -->
             <div class="items-market-container">
                 <img class="items-market" src="img/item-potion1.png" alt="">
                 <img class="items-market" src="img/item-potion2.png" alt="">
@@ -140,16 +202,29 @@ app.component('views-game', {
         <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
-                    <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('resume'); updateView('game-panel')"><img src="./img/ResumeBtn.png" alt="resume"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
                 </div>
             </div>
+            
+            <!-- Tools Panel (contenedor separado) -->
+            <div class="buttons-container tools-container">
+                <div class="buttons-panel tools-panel">
+                    <button v-on:click="selectTool('scythe')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('plant')"><img src="./img/PlantBtn.png" alt="plant"></button>
+                    <button v-on:click="selectTool('fertilizer')"><img src="./img/FertilizerBtn.png" alt="fertilizer"></button>
+                    <button v-on:click="selectTool('bucket')"><img src="./img/BucketBtn.png" alt="bucket"></button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Cauldron Panel -->
     <div v-else-if="selectedView === 'cauldron-panel'">
+
         <!-- Game Wrapper -->
         <div class="game-wrapper">
 
@@ -161,11 +236,21 @@ app.component('views-game', {
             <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
-                    <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('resume'); updateView('game-panel')"><img src="./img/ResumeBtn.png" alt="resume"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
+                </div>
+            </div>
+
+            <!-- Tools Panel (contenedor separado) -->
+            <div class="buttons-container tools-container">
+                <div class="buttons-panel tools-panel">
+                    <button v-on:click="selectTool('scythe')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="selectTool('plant')"><img src="./img/PlantBtn.png" alt="plant"></button>
+                    <button v-on:click="selectTool('fertilizer')"><img src="./img/FertilizerBtn.png" alt="fertilizer"></button>
+                    <button v-on:click="selectTool('bucket')"><img src="./img/BucketBtn.png" alt="bucket"></button>
                 </div>
             </div>
         </div>
