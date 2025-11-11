@@ -1,51 +1,59 @@
-app.component('views-game',{
+app.component('views-game', {
     props: {
-        selectedView:{
+        selectedView: {
             type: String,
             default: "main-menu",
         }
     },
-    data(){
+    data() {
         return {
             activeTool: null
         }
     },
     computed: {
-        
+
     },
     methods: {
-        updateView(selectedView){
+        updateView(selectedView) {
             this.$emit("selected-view", selectedView)
         },
-        
-        selectTool(tool){
-            if(tool === "scythe"){
-                if(this.activeTool === "scythe"){
 
-                    // si ya estaba seleccionado, se desactiva
+
+        // metodo para seleccionar cursor
+        selectTool(tool) {
+
+            if (tool === "scythe") {
+
+                if (this.activeTool === "scythe") {
+
+                    // desactiva scythe
                     this.activeTool = null;
                     document.body.style.cursor = "auto";
                     this.$emit("tool-selected", null);
                 } else {
-                    // activa el scythe
-                    this.activeTool = "scythe";
 
-                    // res 16 16 
-                    document.body.style.cursor = "url(./img/scythe.png) 16 16, auto";
+                    // activar scythe
+                    this.activeTool = "scythe";
+                    document.body.style.cursor = "url(\"./img/ScytheOnly.png\") 16 16, auto";
                     this.$emit("tool-selected", "scythe");
                 }
-            } else {
 
-                // para otras varas: desactiva la herramienta actual
-                this.activeTool = null;
-                document.body.style.cursor = "auto";
-                this.$emit("tool-selected", tool);
-            }
+            } // else if(tool === "Cursor1"){
+
+            // desactiva cursor1
+            //if(this.activeTool === "Cursor1"){
+            //    this.activeTool = null;
+            //    document.body.style.cursor = "auto";
+            //    this.$emit("tool-selected", null);
+            //
+            // activa cursor1
+            //} else {
+            //    this.activeTool = "Cursor1";
+            //    document.body.style.cursor = "url(\"./img/Cursor1.png\") 8 8, auto";
+            //    this.$emit("tool-selected", "Cursor1");
+            //}
+            //} 
         }
-    },
-    unmounted(){
-        // restaurar cursor al desmontar el componente
-        document.body.style.cursor = 'auto';
     },
     template: /*html*/ `
     <div v-if="selectedView === 'main-menu'"> 
@@ -145,34 +153,10 @@ app.component('views-game',{
         <!-- Game Wrapper -->
         <div class="game-wrapper">
 
-        <!--cauldron-->
-
+            <!-- Background Image -->
             <div class="game-area">
-            <img src="./img/cauldron-panel.png" alt="Game Layer">
-            <div class="potions-container">
-                <div class="potions-craft-container">
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                </div>
-                <div class="craft-potion">
-                    <div class="description-potion">
-                        <h2>Potion name</h2>
-                        <p>requiere:</p>
-                        <div class="ingredientes-container">
-                            <img class="ingrediente" src="img/item-spiderweb.png" alt=""><p>5</p>
-                            <img class="ingrediente" src="img/item-spiderweb.png" alt=""><p>3</p>
-                            <img class="ingrediente" src="img/item-spiderweb.png" alt=""><p>4</p>
-                        </div>
-                        <button class="button-cauldron">Produce</button>
-                    </div>
-                    <img class="potion-selected" src="img/itemPocion.png" alt="">
-                </div>
+                <img src="./img/cauldron-panel.png" alt="Game Layer">
             </div>
-        </div>
 
             <!-- Buttons Panel -->
             <div class="buttons-container">

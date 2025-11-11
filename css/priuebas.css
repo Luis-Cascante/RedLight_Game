@@ -70,40 +70,23 @@ body {
     border: 10px solid #2B2028;
     border-radius: 10px;
     width: 550px;
-    height: 210px;
+    height: 200px;
 }
 
 .ingredientes-container{
     padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
 }
 
 .description-potion{
     margin: 0;
-    margin-left: 25px;
     padding: 0;
 }
 
-.description-potion h2{
-    margin-top: 5px;
-    margin-bottom: 1px;
-    font-family: "shlop", sans-serif;
-    font-size: 36px;
-    letter-spacing: 3px; 
-}
-
-.description-potion p{
-    margin-top: 1px;
-    margin-bottom: 5px;
-    font-family: "shlop", sans-serif;
-    font-size: 26px;
-}
-
 .ingrediente{
-    width: 60px;
+    width: 40px;
     margin: 0;
 }
 
@@ -211,6 +194,28 @@ body {
     margin: 15px;
     width: auto;
     height: 110px;
+}
+
+.main-title{
+    font-family: "shlop", sans-serif;
+    font-size: 48px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-exit{
+    margin-left: 570px;
+    margin-top: 10px;
+}
+
+.buttons-style{
+
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 .buttons-panel {
