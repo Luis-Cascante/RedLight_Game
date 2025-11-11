@@ -95,7 +95,7 @@ app.component('views-game', {
                 <div class="buttons-panel">
                     <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
+                    <button v-on:click="updateView('inventory-panel')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
                 </div>
@@ -142,7 +142,7 @@ app.component('views-game', {
                 <div class="buttons-panel">
                     <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
+                    <button v-on:click="updateView('inventory-panel')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
                 </div>
@@ -155,15 +155,80 @@ app.component('views-game', {
 
             <!-- Background Image -->
             <div class="game-area">
-                <img src="./img/cauldron-panel.png" alt="Game Layer">
+            <img src="./img/cauldron-panel.png" alt="Game Layer">
+            <div class="potions-container">
+                <div class="potions-craft-container">
+                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
+                </div>
+                <div class="craft-potion">
+                    <div class="description-potion">
+                        <h2>Potion name</h2>
+                        <p>requiere:</p>
+                        <div class="ingredientes-container">
+                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>5</p>
+                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>3</p>
+                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>4</p>
+                        </div>
+                        <button class="button-cauldron">Produce</button>
+                    </div>
+                    <img class="potion-selected" src="img/itemPocion.png" alt="">
+                </div>
             </div>
+        </div>
 
             <!-- Buttons Panel -->
             <div class="buttons-container">
                 <div class="buttons-panel">
                     <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
                     <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
+                    <button v-on:click="updateView('inventory-panel')"><img src="./img/inventory-btn.png" alt="inventory"></button>
+                    <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
+                    <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-else-if="selectedView === 'inventory-panel'">
+        <!-- Game Wrapper -->
+        <div class="game-wrapper">
+
+            <!-- Background Image -->
+            <div class="game-area">
+                <img src="img/inventory-panel.png" alt="">
+                <div class="items-inventory-container">
+                    <img class="items-inventory" src="img/item-potion1.png" alt="">
+                    <img class="items-inventory" src="img/item-potion2.png" alt="">
+                    <img class="items-inventory" src="img/itemPocion.png" alt="">
+                    <img class="items-inventory" src="img/item-potion1.png" alt="">
+                    <img class="items-inventory" src="img/item-potion2.png" alt="">
+                    <img class="items-inventory" src="img/item-spiderweb.png" alt="">
+                    <img class="items-inventory" src="img/item-potion1.png" alt="">
+                    <img class="items-inventory" src="img/item-potion2.png" alt="">
+                    <img class="items-inventory" src="img/itemPocion.png" alt="">
+                    <img class="items-inventory" src="img/item-potion1.png" alt="">
+                    <img class="items-inventory" src="img/item-potion2.png" alt="">
+                    <img class="items-inventory" src="img/item-spiderweb.png" alt="">
+                    <img class="items-inventory" src="img/item-potion1.png" alt="">
+                    <img class="items-inventory" src="img/item-potion2.png" alt="">
+                    <img class="items-inventory" src="img/itemPocion.png" alt="">
+                    <img class="items-inventory" src="img/item-potion1.png" alt="">
+                    <img class="items-inventory" src="img/item-potion2.png" alt="">
+                    <img class="items-inventory" src="img/item-spiderweb.png" alt="">
+                </div>
+            
+        </div>
+
+        <!-- Buttons Panel -->
+            <div class="buttons-container">
+                <div class="buttons-panel">
+                    <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
+                    <button v-on:click="updateView('inventory-panel')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                     <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
                     <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
                 </div>

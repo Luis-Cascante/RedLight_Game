@@ -35,6 +35,22 @@ body {
     border-radius: 5px;
 }
 
+.items-inventory-container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: absolute;
+    top: 30%;
+    left: 12.5%;
+    width: 950px;
+    height: 450px;
+}
+
+.items-inventory{
+    margin: 15px;
+    width: auto;
+    height: 110px;
+}
+
 .potions-container{        
 
     position: absolute;
@@ -70,23 +86,40 @@ body {
     border: 10px solid #2B2028;
     border-radius: 10px;
     width: 550px;
-    height: 200px;
+    height: 210px;
 }
 
 .ingredientes-container{
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 10px;
 }
 
 .description-potion{
     margin: 0;
+    margin-left: 25px;
     padding: 0;
 }
 
+.description-potion h2{
+    margin-top: 5px;
+    margin-bottom: 1px;
+    font-family: "shlop", sans-serif;
+    font-size: 36px;
+    letter-spacing: 3px; 
+}
+
+.description-potion p{
+    margin-top: 1px;
+    margin-bottom: 5px;
+    font-family: "shlop", sans-serif;
+    font-size: 26px;
+}
+
 .ingrediente{
-    width: 40px;
+    width: 60px;
     margin: 0;
 }
 
