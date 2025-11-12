@@ -273,10 +273,11 @@ body {
 
 .main-title{
     font-family: "shlop", sans-serif;
-    font-size: 48px;
-    color: rgb(0, 0, 0);
+    font-size: 100px;
+    color: rgb(147, 146, 150);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
+     -webkit-text-stroke: 0.1px hsl(0, 0%, 0%);
 }
 
 .button-exit{
@@ -323,17 +324,24 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
+   
 }
 
 .buttons .buttons-style img,
 .buttons-style img {
-    transition: transform 0.5s;
+    transition: transform 0.5s ease, filter 3s ease, margin 0.3s ease;;
+    
 }
 
 .buttons .buttons-style img:hover,
 .buttons-style img:hover {
     transform: scale(1.2);
+    filter: drop-shadow(0 0 25px hsl(248, 16%, 10%));
+    margin-block: 20px;
+    transition: all 0.3s ease;
 }
+
+
 
 .button-exit {
     margin-left: 570px;

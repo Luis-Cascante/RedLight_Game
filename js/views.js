@@ -99,8 +99,11 @@ app.component('views-game', {
 
     <!-- Main Menu Panel -->
     <div v-if="selectedView === 'main-menu'"> 
+
+        <h1 class="main-title"> RedLight Farm </h1>
+
         <div class="buttons">
-            <h1 class="main-title"> RedLight Farm </h1>
+            
             <button v-on:click="updateView('game-panel')" class="buttons-style"><img src="./img/startGame-btn.png" alt="instructions button"></button>
             <button v-on:click="updateView('instructions')" class="buttons-style"><img src="./img/instructions-btn.png" alt="instructions button"></button>
             <button v-on:click="updateView('lore')" class="buttons-style"><img src="./img/lore-btn.png" alt="lore button"></button>
@@ -140,25 +143,10 @@ app.component('views-game', {
             </div>
 
             <!-- Buttons Panel -->
-            <div class="buttons-container">
-                <div class="buttons-panel">
-                    <button v-on:click="selectTool('resume'); updateView('game-panel')"><img src="./img/ResumeBtn.png" alt="resume"></button>
-                    <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
-                    <button v-on:click="updateView('inventory-panel')"><img src="./img/inventory-btn.png" alt="inventory"></button>
-                    <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
-                </div>
-            </div>
+            <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
 
             <!-- Tools Panel (separate container) -->
-            <div class="buttons-container tools-container">
-                <div class="buttons-panel tools-panel">
-                    <button v-on:click="selectTool('scythe')"><img src="./img/scythe.png" alt="farm"></button>
-                    <button v-on:click="selectTool('plant')"><img src="./img/PlantBtn.png" alt="plant"></button>
-                    <button v-on:click="selectTool('fertilizer')"><img src="./img/FertilizerBtn.png" alt="fertilizer"></button>
-                    <button v-on:click="selectTool('bucket')"><img src="./img/BucketBtn.png" alt="bucket"></button>
-                </div>
-            </div>
+           <tools-buttons @select-tool='selectTool'></tools-buttons> 
         </div>
     </div>
     <!-- Store Panel -->
@@ -201,25 +189,13 @@ app.component('views-game', {
         </div>
 
         <!-- Buttons Panel -->
-            <div class="buttons-container">
-                <div class="buttons-panel">
-                    <button v-on:click="selectTool('resume'); updateView('game-panel')"><img src="./img/ResumeBtn.png" alt="resume"></button>
-                    <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
-                    <button v-on:click="updateView('inventory-panel')"><img src="./img/inventory-btn.png" alt="inventory"></button>
-                    <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
-                </div>
-            </div>
+
+        <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
+           
             
-            <!-- Tools Panel (contenedor separado) -->
-            <div class="buttons-container tools-container">
-                <div class="buttons-panel tools-panel">
-                    <button v-on:click="selectTool('scythe')"><img src="./img/scythe.png" alt="farm"></button>
-                    <button v-on:click="selectTool('plant')"><img src="./img/PlantBtn.png" alt="plant"></button>
-                    <button v-on:click="selectTool('fertilizer')"><img src="./img/FertilizerBtn.png" alt="fertilizer"></button>
-                    <button v-on:click="selectTool('bucket')"><img src="./img/BucketBtn.png" alt="bucket"></button>
-                </div>
-            </div>
+            <!-- Tools Panel (contenedor separado) 
+            <tools-buttons @select-tool='selectTool'></tools-buttons>-->
+           
         </div>
     </div>
 
@@ -258,17 +234,11 @@ app.component('views-game', {
         </div>
 
             <!-- Buttons Panel -->
-            <div class="buttons-container">
-                <div class="buttons-panel">
-                    <button v-on:click="selectTool('resume'); updateView('game-panel')"><img src="./img/ResumeBtn.png" alt="resume"></button>
-                    <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
-                    <button v-on:click="updateView('inventory-panel')"><img src="./img/inventory-btn.png" alt="inventory"></button>
-                    <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
-                </div>
-            </div>
+             <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
         </div>
     </div>
+
+    <!-- Inventory Panel -->
     <div v-else-if="selectedView === 'inventory-panel'">
         <!-- Game Wrapper -->
         <div class="game-wrapper">
@@ -300,25 +270,10 @@ app.component('views-game', {
         </div>
 
         <!-- Buttons Panel -->
-            <div class="buttons-container">
-                <div class="buttons-panel">
-                    <button v-on:click="selectTool('scythe'); updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
-                    <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
-                    <button v-on:click="updateView('inventory-panel')"><img src="./img/inventory-btn.png" alt="inventory"></button>
-                    <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
-                    <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
-                </div>
-            </div>
+             <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
 
-            <!-- Tools Panel (contenedor separado) -->
-            <div class="buttons-container tools-container">
-                <div class="buttons-panel tools-panel">
-                    <button v-on:click="selectTool('scythe')"><img src="./img/scythe.png" alt="farm"></button>
-                    <button v-on:click="selectTool('plant')"><img src="./img/PlantBtn.png" alt="plant"></button>
-                    <button v-on:click="selectTool('fertilizer')"><img src="./img/FertilizerBtn.png" alt="fertilizer"></button>
-                    <button v-on:click="selectTool('bucket')"><img src="./img/BucketBtn.png" alt="bucket"></button>
-                </div>
-            </div>
+            <!-- Tools Panel (contenedor separado)
+           <tools-buttons @select-tool='selectTool'></tools-buttons>-->
         </div>
     </div>
     `
