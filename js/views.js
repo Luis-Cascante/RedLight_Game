@@ -93,6 +93,14 @@ app.component('views-game', {
                 document.body.style.cursor = "auto";
                 this.$emit("tool-selected", null);
             }
+
+            if (tool === "store-panel" || tool === "cauldron-panel" || tool === "inventory-panel") {
+                // desactiva cualquier herramienta em curso
+                this.activeTool = null;
+                document.body.style.cursor = "auto";
+                this.$emit("tool-selected", null);
+                this.updateView(tool);
+            }
         }
     },
     template: /*html*/ `
@@ -103,7 +111,6 @@ app.component('views-game', {
         <h1 class="main-title"> RedLight Farm </h1>
 
         <div class="buttons">
-            
             <button v-on:click="updateView('game-panel')" class="buttons-style"><img src="./img/startGame-btn.png" alt="instructions button"></button>
             <button v-on:click="updateView('instructions')" class="buttons-style"><img src="./img/instructions-btn.png" alt="instructions button"></button>
             <button v-on:click="updateView('lore')" class="buttons-style"><img src="./img/lore-btn.png" alt="lore button"></button>
