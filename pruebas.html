@@ -43,7 +43,7 @@
         </div>-->
 
         <!-- Background Image -->
-        <!--<div class="game-area">
+        <div class="game-area">
             <img src="./img/cauldron-panel.png" alt="Game Layer">
             <div class="potions-container">
                 <div class="potions-craft-container">
@@ -59,18 +59,27 @@
                         <h2>Potion name</h2>
                         <p>requiere:</p>
                         <div class="ingredientes-container">
-                            <img class="ingrediente" src="img/item-spiderweb.png" alt=""><p>5</p>
-                            <img class="ingrediente" src="img/item-spiderweb.png" alt=""><p>3</p>
-                            <img class="ingrediente" src="img/item-spiderweb.png" alt=""><p>4</p>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
                         </div>
                         <button class="button-cauldron">Produce</button>
                     </div>
                     <img class="potion-selected" src="img/itemPocion.png" alt="">
                 </div>
             </div>
-        </div>-->
+        </div>
 
-        <div class="game-area">
+        <!--<div class="game-area">
             <img src="img/inventory-panel.png" alt="">
             <div class="items-inventory-container">
                 <img class="items-inventory" src="img/item-potion1.png" alt="">
@@ -92,17 +101,15 @@
                 <img class="items-inventory" src="img/item-potion2.png" alt="">
                 <img class="items-inventory" src="img/item-spiderweb.png" alt="">
             </div>
-        </div>
+        </div>-->
 
         <!-- Buttons Panel -->
         <div class="buttons-container">
-            <div class="buttons-panel">
                 <button v-on:click="updateView('game-panel')"><img src="./img/scythe.png" alt="farm"></button>
                 <button v-on:click="updateView('cauldron-panel')"><img src="./img/potions.png" alt="potions"></button>
                 <button v-on:click="updateView('main-menu')"><img src="./img/inventory-btn.png" alt="inventory"></button>
                 <button v-on:click="updateView('store-panel')"><img src="./img/store.png" alt="store"></button>
                 <button v-on:click="updateView('main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
-            </div>
         </div>
 
     </div>
