@@ -100,7 +100,14 @@ body {
     border-radius: 10px;
     width: 150px;
     height: 150px;
+    transition: transform 0.2s;
 }
+
+.potion:hover{
+    transform: scale(1.15);
+    background-color: #4d3b48;
+}
+
 /* -----------------------------
        3) Botones
        ----------------------------- */
@@ -229,10 +236,12 @@ body {
     text-transform: uppercase; /* Para que el texto sea todo mayúsculas como en la imagen */
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Sombra para botón */
     transition: background-color 0.2s ease;
+    transition: transform 0.2s;
 }
 
 .button-cauldron:hover {
     background-color: #5D5C6E; /* Cambio de color al pasar el ratón */
+    transform: scale(1.15);
 }
 
 .potion-selected{
@@ -566,4 +575,25 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px hsl(0, 0%, 0%);
+}
+
+/* sss */
+
+.farm-panel{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem 2rem;
+    padding: 0;
+    position: absolute;
+    top: 37%;
+    left: 27%;
+    /*background: #3D2D38;*/
+    width: 520px;
+    height: 280px;
+    margin: 11px 10px 10px 30px;
+}
+
+.plants{
+    width: 50px;
+    
 }

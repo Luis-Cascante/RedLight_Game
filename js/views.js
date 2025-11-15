@@ -140,7 +140,21 @@ app.component('views-game', {
             <!-- Background Image -->
             <div class="game-area">
                 <img src="./img/GameLayer.png" alt="Game Layer">
-            </div>
+                <div class="farm-panel">
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                </div>
+        </div>
 
             <!-- Buttons Panel -->
             <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
@@ -220,7 +234,7 @@ app.component('views-game', {
                 <div class="craft-potion">
                     <div class="description-potion">
                         <h2>Potion name</h2>
-                        <p>requiere:</p>
+                        <p class="description-potion-requirement">requiere:</p>
                         <div class="ingredientes-container">
                             <div class="ingrediente-item">
                                 <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
