@@ -144,12 +144,13 @@ body {
     justify-content: space-between; /* Empuja la descripción a la izquierda y la poción seleccionada a la derecha */
     align-items: center; /* Centra verticalmente los elementos principales */
     margin: 15px;
+    margin-top: 0;
     padding: 15px; /* Ajusta el padding para un mejor espacio interior */
     background-color: #3D2D38;
     border: 10px solid #2B2028;
     border-radius: 10px;
-    width: 550px; /* Mantén el ancho, pero la altura la ajustaremos */
-    height: 250px; /* Ajusta la altura para que quepa todo como en la imagen 2 */
+    width: 570px; /* Mantén el ancho, pero la altura la ajustaremos */
+    height: 270px; /* Ajusta la altura para que quepa todo como en la imagen 2 */
     box-sizing: border-box;
     color: white;
 }
@@ -159,7 +160,7 @@ body {
     display: flex; /* Activa Flexbox para los elementos de ingrediente */
     justify-content: flex-start; /* Alinea los ingredientes a la izquierda */
     gap: 20px; /* Espacio entre cada grupo de ingrediente+cantidad */
-    margin-bottom: 15px; /* Más espacio debajo de los ingredientes */
+    margin-bottom: 5px;
 }
 
 .description-potion{
@@ -171,6 +172,7 @@ body {
     justify-content: center; /* Opcional: Centra verticalmente si hay espacio */
     align-items: flex-start; /* Alinea los elementos a la izquierda */
     flex-grow: 1; /* Permite que este div ocupe el espacio disponible */
+    -webkit-text-stroke: 0.1px hsl(0, 0%, 0%);
 }
 
 .description-potion h2{
@@ -183,7 +185,7 @@ body {
     text-shadow: 2px 2px #2B2028; /* Sombra para resaltar */
 }
 
-.description-potion p{
+.description-potion-requirement{
     margin-top: 1px;
     margin-bottom: 8px; /* Ajustado para más espacio */
     font-family: "shlop", sans-serif;
@@ -194,7 +196,8 @@ body {
 
 .ingrediente-item {
     display: flex;
-    flex-direction: column; /* Apila la imagen y la cantidad */
+    flex-direction:row; /* Apila la imagen y la cantidad */
+    gap: 10px;
     align-items: center; /* Centra la imagen y el número */
 }
 
@@ -206,7 +209,7 @@ body {
 
 .ingrediente-qty {
     font-family: "shlop", sans-serif;
-    font-size: 24px; /* Tamaño de la cantidad */
+    /*font-size: 24px;  Tamaño de la cantidad */
     color: #F8F4E8;
     margin: 0; /* Elimina márgenes por defecto del párrafo */
     text-shadow: 1px 1px #2B2028;
@@ -334,7 +337,7 @@ body {
     color: rgb(147, 146, 150);
     text-align: center;
     margin-bottom: 100px;
-     -webkit-text-stroke: 0.1px hsl(0, 0%, 0%);
+    -webkit-text-stroke: 0.1px hsl(0, 0%, 0%);
 }
 
 .button-exit{
@@ -521,63 +524,7 @@ body {
 /* -----------------------------
        6) Pociones
        ----------------------------- */
-.potions-container {
-    position: absolute;
-    top: 6%;
-    left: 45%;
-    border-radius: 10px;
-    width: 575px;
-    height: 640px;
-}
 
-.potions-craft-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.potion {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-    background-color: hsl(319, 15%, 21%);
-    border: 10px solid hsl(316, 15%, 15%);
-    border-radius: 10px;
-    width: 150px;
-    height: 150px;
-}
-
-.craft-potion {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px;
-    background-color: hsl(319, 15%, 21%);
-    border: 10px solid hsl(316, 15%, 15%);
-    border-radius: 10px;
-    width: 550px;
-    height: 200px;
-}
-
-.ingredientes-container {
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.description-potion {
-    margin: 0;
-    padding: 0;
-}
-
-.ingrediente {
-    width: 40px;
-    margin: 0;
-}
-
-.potion-selected {
-    margin: 15px;
-    height: 150px;
-}
 
 /* -----------------------------
        7) Paneles / Inventario / Contenedores

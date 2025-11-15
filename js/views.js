@@ -222,9 +222,18 @@ app.component('views-game', {
                         <h2>Potion name</h2>
                         <p>requiere:</p>
                         <div class="ingredientes-container">
-                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>5</p>
-                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>3</p>
-                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>4</p>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
                         </div>
                         <button class="button-cauldron">Produce</button>
                     </div>
