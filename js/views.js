@@ -94,12 +94,11 @@ app.component('views-game', {
                 this.$emit("tool-selected", null);
             }
 
-            if (tool === "store-panel" || tool === "cauldron-panel" || tool === "inventory-panel") {
+            if (tool === "store-panel" || tool === "cauldron-panel" || tool === "inventory-panel" || tool === "main-menu") {
                 // desactiva cualquier herramienta em curso
                 this.activeTool = null;
                 document.body.style.cursor = "auto";
                 this.$emit("tool-selected", null);
-                this.updateView(tool);
             }
         }
     },
