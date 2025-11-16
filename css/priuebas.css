@@ -68,7 +68,6 @@ body {
 }
 
 .potions-container {
-
     position: absolute;
     top: 6%;
     left: 45%;
@@ -87,8 +86,8 @@ body {
     justify-content: center;
     align-items: center;
     margin: 15px;
-    background-color: #3D2D38;
-    border: 10px solid #2B2028;
+    background-color: hsl(319, 15%, 21%);
+    border: 10px solid hsl(316, 15%, 15%);
     border-radius: 10px;
     width: 150px;
     height: 150px;
@@ -97,7 +96,7 @@ body {
 
 .potion:hover {
     transform: scale(1.15);
-    background-color: #4d3b48;
+    background-color: hsl(317, 13%, 27%);
 }
 
 /* -----------------------------
@@ -151,13 +150,13 @@ body {
     margin: 15px;
     margin-top: 0;
     padding: 15px;
-    background-color: #3D2D38;
-    border: 10px solid #2B2028;
+    background-color: hsl(319, 15%, 21%);
+    border: 10px solid hsl(316, 15%, 15%);
     border-radius: 10px;
     width: 570px;
     height: 270px;
     box-sizing: border-box;
-    color: white;
+    color: hsl(0, 0%, 100%);
 }
 
 .ingredientes-container {
@@ -195,9 +194,9 @@ body {
     font-family: "shlop", sans-serif;
     font-size: 36px;
     letter-spacing: 3px;
-    color: #F8F4E8;
+    color: hsl(45, 54%, 94%);
     /* Color para que se vea claro */
-    text-shadow: 2px 2px #2B2028;
+    text-shadow: 2px 2px hsl(316, 15%, 15%);
     /* Sombra para resaltar */
 }
 
@@ -206,8 +205,8 @@ body {
     margin-bottom: 8px;
     font-family: "shlop", sans-serif;
     font-size: 26px;
-    color: #F8F4E8;
-    text-shadow: 1px 1px #2B2028;
+    color: hsl(45, 54%, 94%);
+    text-shadow: 1px 1px hsl(316, 15%, 15%);
 }
 
 .ingrediente-item {
@@ -225,9 +224,9 @@ body {
 
 .ingrediente-qty {
     font-family: "shlop", sans-serif;
-    color: #F8F4E8;
+    color: hsl(45, 54%, 94%);
     margin: 0;
-    text-shadow: 1px 1px #2B2028;
+    text-shadow: 1px 1px hsl(316, 15%, 15%);
 }
 
 .potion-selected {
@@ -246,8 +245,8 @@ body {
     position: absolute;
     top: 6%;
     left: 50%;
-    background-color: #3D2D38;
-    border: 10px solid #2B2028;
+    background-color: hsl(319, 15%, 21%);
+    border: 10px solid hsl(316, 15%, 15%);
     border-radius: 10px;
     width: 475px;
     height: 250px;
@@ -283,7 +282,7 @@ body {
 .price {
     font-family: "shlop", sans-serif;
     font-size: 32px;
-    color: antiquewhite;
+    color: hsl(35, 77%, 91%);
 }
 
 .coin-img {
@@ -313,10 +312,26 @@ body {
     height: 110px;
 }
 
+.items-market,
+.items-inventory,
+.potion img,
+.item-buy-img,
+.potion-selected {
+    transition: transform 0.18s ease;
+}
+
+.items-market:hover,
+.items-inventory:hover,
+.potion img:hover,
+.item-buy-img:hover,
+.potion-selected:hover {
+    transform: translateY(-6px) scale(1.40);
+}
+
 .main-title {
     font-family: "shlop", sans-serif;
     font-size: 100px;
-    color: rgb(147, 146, 150);
+    color: hsl(255, 2%, 58%);
     text-align: center;
     margin-bottom: 100px;
     -webkit-text-stroke: 0.1px hsl(0, 0%, 0%);
@@ -332,14 +347,14 @@ body {
 
 .buttons .buttons-style img,
 .buttons-style img {
-    transition: transform 0.5s ease, filter 3s ease, margin 0.3s ease;
+    transition: transform 0.5s ease, filter 0.3s ease, margin 0.3s ease;
 }
 
 .buttons .buttons-style img:hover,
 .buttons-style img:hover {
     transform: scale(1.2);
-    filter: drop-shadow(0 0 25px hsl(248, 16%, 10%));
     margin-block: 20px;
+    filter: brightness(1.6) drop-shadow(0 6px 18px hsla(0, 0%, 0%, 0.6));
     transition: all 0.3s ease;
 }
 
@@ -375,6 +390,21 @@ body {
     font-family: "shlop", sans-serif;
     font-size: 26px;
     color: hsl(231, 26%, 16%);
+}
+
+.button-market,
+.button-cauldron {
+    transition: transform 0.18s ease;
+}
+
+.button-market:hover,
+.button-cauldron:hover {
+    transform: translateY(-6px) scale(1.15);
+}
+
+.button-cauldron:hover,
+.button-market:hover {
+    background-color: hsl(243, 9%, 40%);
 }
 
 /* -----------------------------
