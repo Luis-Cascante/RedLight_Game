@@ -114,7 +114,6 @@ body {
     overflow: hidden;
 }
 
-<<<<<<< HEAD
 
 
 /*
@@ -143,8 +142,6 @@ body {
     margin-bottom: 20px;
 }
 
-=======
->>>>>>> origin/main
 /* -----------------------------
        2) Area de juego 
        ----------------------------- */
@@ -683,13 +680,11 @@ body {
     box-shadow: 0 0 10px hsl(0, 0%, 0%);
 }
 
-<<<<<<< HEAD
 /*-----------------------------
        8) Lobby, el boton hacía singUp  
        ----------------------------- */
 
 
-=======
 /* sss */
 
 .farm-panel {
@@ -708,5 +703,5 @@ body {
 
 .plants {
     width: 50px;
->>>>>>> origin/main
+}
 }
