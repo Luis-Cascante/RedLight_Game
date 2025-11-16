@@ -30,12 +30,12 @@ template: /*html*/`
 
  <div class="buttons-container tools-container">
                 <div class="buttons-panel tools-panel">
-                    <button v-on:click="$emit('selectTool', 'scythe')"><img src="./img/scythe.png" alt="farm"></button>
-                    <button v-on:click="$emit('selectTool','plant')"><img src="./img/PlantBtn.png" alt="plant"></button>
-                    <button v-on:click="$emit('selectTool','fertilizer')"><img src="./img/FertilizerBtn.png" alt="fertilizer"></button>
-                    <button v-on:click="$emit('selectTool','bucket')"><img src="./img/BucketBtn.png" alt="bucket"></button>
+                    <button v-on:click="$emit('select-tool', 'scythe')"><img src="./img/scythe.png" alt="farm"></button>
+                    <button v-on:click="$emit('select-tool','plant')"><img src="./img/PlantBtn.png" alt="plant"></button>
+                    <button v-on:click="$emit('select-tool','fertilizer')"><img src="./img/FertilizerBtn.png" alt="fertilizer"></button>
+                    <button v-on:click="$emit('select-tool','bucket')"><img src="./img/BucketBtn.png" alt="bucket"></button>
                 </div>
             </div>
 `
-    
+
 });

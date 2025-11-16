@@ -114,6 +114,7 @@ body {
     overflow: hidden;
 }
 
+<<<<<<< HEAD
 
 
 /*
@@ -142,6 +143,8 @@ body {
     margin-bottom: 20px;
 }
 
+=======
+>>>>>>> origin/main
 /* -----------------------------
        2) Area de juego 
        ----------------------------- */
@@ -169,7 +172,7 @@ body {
     border-radius: 5px;
 }
 
-.items-inventory-container{
+.items-inventory-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     position: absolute;
@@ -179,14 +182,13 @@ body {
     height: 450px;
 }
 
-.items-inventory{
+.items-inventory {
     margin: 15px;
     width: auto;
     height: 110px;
 }
 
-.potions-container{        
-
+.potions-container {
     position: absolute;
     top: 6%;
     left: 45%;
@@ -195,22 +197,29 @@ body {
     height: 640px;
 }
 
-.potions-craft-container{
+.potions-craft-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
-.potion{
+.potion {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 15px;
-    background-color: #3D2D38;
-    border: 10px solid #2B2028;
+    background-color: hsl(319, 15%, 21%);
+    border: 10px solid hsl(316, 15%, 15%);
     border-radius: 10px;
     width: 150px;
     height: 150px;
+    transition: transform 0.2s;
 }
+
+.potion:hover {
+    transform: scale(1.15);
+    background-color: hsl(317, 13%, 27%);
+}
+
 /* -----------------------------
        3) Botones
        ----------------------------- */
@@ -219,6 +228,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10rem;
+    gap: 20px;
 }
 
 .buttons-container {
@@ -249,219 +260,202 @@ body {
     transform: scale(1.2);
 }
 
-.craft-potion{
+/* -----------------------------
+       6) Pociones
+       ----------------------------- */
+
+.craft-potion {
     display: flex;
-    justify-content: space-between; /* Empuja la descripción a la izquierda y la poción seleccionada a la derecha */
-    align-items: center; /* Centra verticalmente los elementos principales */
+    justify-content: space-between;
+    align-items: center;
     margin: 15px;
-    padding: 15px; /* Ajusta el padding para un mejor espacio interior */
-    background-color: #3D2D38;
-    border: 10px solid #2B2028;
+    margin-top: 0;
+    padding: 15px;
+    background-color: hsl(319, 15%, 21%);
+    border: 10px solid hsl(316, 15%, 15%);
     border-radius: 10px;
-    width: 550px; /* Mantén el ancho, pero la altura la ajustaremos */
-    height: 250px; /* Ajusta la altura para que quepa todo como en la imagen 2 */
+    width: 570px;
+    height: 270px;
     box-sizing: border-box;
-    color: white;
+    color: hsl(0, 0%, 100%);
 }
 
-.ingredientes-container{
+.ingredientes-container {
     padding: 0;
-    display: flex; /* Activa Flexbox para los elementos de ingrediente */
-    justify-content: flex-start; /* Alinea los ingredientes a la izquierda */
-    gap: 20px; /* Espacio entre cada grupo de ingrediente+cantidad */
-    margin-bottom: 15px; /* Más espacio debajo de los ingredientes */
+    display: flex;
+    /* Activa Flexbox para los elementos de ingrediente */
+    justify-content: flex-start;
+    /* Alinea los ingredientes a la izquierda */
+    gap: 20px;
+    /* Espacio entre cada grupo de ingrediente+cantidad */
+    margin-bottom: 5px;
 }
 
-.description-potion{
+.description-potion {
     margin: 0;
     margin-left: 25px;
     padding: 0;
-    display: flex; /* Activa Flexbox para alinear los elementos internos (h2, p, ingredientes-container, button) */
-    flex-direction: column; /* Apila los elementos verticalmente */
-    justify-content: center; /* Opcional: Centra verticalmente si hay espacio */
-    align-items: flex-start; /* Alinea los elementos a la izquierda */
-    flex-grow: 1; /* Permite que este div ocupe el espacio disponible */
+    display: flex;
+    /* Activa Flexbox para alinear los elementos internos (h2, p, ingredientes-container, button) */
+    flex-direction: column;
+    /* Apila los elementos verticalmente */
+    justify-content: center;
+    /* Opcional: Centra verticalmente si hay espacio */
+    align-items: flex-start;
+    /* Alinea los elementos a la izquierda */
+    flex-grow: 1;
+    /* Permite que este div ocupe el espacio disponible */
+    -webkit-text-stroke: 0.1px hsl(0, 0%, 0%);
 }
 
-.description-potion h2{
+.description-potion h2 {
     margin-top: 5px;
-    margin-bottom: 5px; /* Ajustado para más espacio */
+    margin-bottom: 5px;
+    /* Ajustado para más espacio */
     font-family: "shlop", sans-serif;
     font-size: 36px;
     letter-spacing: 3px;
-    color: #F8F4E8; /* Color para que se vea claro */
-    text-shadow: 2px 2px #2B2028; /* Sombra para resaltar */
+    color: hsl(45, 54%, 94%);
+    /* Color para que se vea claro */
+    text-shadow: 2px 2px hsl(316, 15%, 15%);
+    /* Sombra para resaltar */
 }
 
-.description-potion p{
+.description-potion-requirement {
     margin-top: 1px;
-    margin-bottom: 8px; /* Ajustado para más espacio */
+    margin-bottom: 8px;
     font-family: "shlop", sans-serif;
     font-size: 26px;
-    color: #F8F4E8;
-    text-shadow: 1px 1px #2B2028;
+    color: hsl(45, 54%, 94%);
+    text-shadow: 1px 1px hsl(316, 15%, 15%);
 }
 
 .ingrediente-item {
     display: flex;
-    flex-direction: column; /* Apila la imagen y la cantidad */
-    align-items: center; /* Centra la imagen y el número */
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
 }
 
 .ingrediente-img {
-    width: 60px; /* Tamaño de la imagen del ingrediente */
+    width: 60px;
     height: auto;
-    margin-bottom: 5px; /* Espacio entre la imagen y la cantidad */
+    margin-bottom: 5px;
 }
 
 .ingrediente-qty {
     font-family: "shlop", sans-serif;
-    font-size: 24px; /* Tamaño de la cantidad */
-    color: #F8F4E8;
-    margin: 0; /* Elimina márgenes por defecto del párrafo */
-    text-shadow: 1px 1px #2B2028;
+    color: hsl(45, 54%, 94%);
+    margin: 0;
+    text-shadow: 1px 1px hsl(316, 15%, 15%);
 }
 
-.button-cauldron{
-    background-color: #49485A;
-    border: 7px solid #1E2133;
-    border-radius: 10px;
-    width: 130px; /* Un poco más ancho para el texto "produce" */
-    height: 50px; /* Ajusta la altura */
-    cursor: pointer;
-    margin-right: 0; /* Asegura que no tenga margen a la derecha */
-    font-family: "shlop", sans-serif;
-    font-size: 26px;
-    color: #D4D1DC; /* Color de texto más claro */
-    text-transform: uppercase; /* Para que el texto sea todo mayúsculas como en la imagen */
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Sombra para botón */
-    transition: background-color 0.2s ease;
+.potion-selected {
+    margin: 15px;
+    height: 150px;
+    width: auto;
+    align-self: center;
+    flex-shrink: 0;
 }
 
-.button-cauldron:hover {
-    background-color: #5D5C6E; /* Cambio de color al pasar el ratón */
-}
-
-.potion-selected{
-    margin: 15px; /* Puedes ajustar este margen si es necesario */
-    height: 150px; /* La altura de la poción */
-    width: auto; /* Mantiene la proporción */
-    align-self: center; /* Centra la poción verticalmente dentro del flex container */
-    flex-shrink: 0; /* Evita que la poción se encoja */
-}
-
-.buy-item-container{
-    display: flex;            
-    justify-content: space-between; 
+.buy-item-container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0px 25px 0px 25px;
     position: absolute;
     top: 6%;
     left: 50%;
-    background-color: #3D2D38;
-    border: 10px solid #2B2028;
+    background-color: hsl(319, 15%, 21%);
+    border: 10px solid hsl(316, 15%, 15%);
     border-radius: 10px;
     width: 475px;
     height: 250px;
 }
 
-.item-buy-description{
+.item-buy-description {
     display: inline-block;
-    
+
 }
 
-.item-buy-description h2{
+.item-buy-description h2 {
     margin-top: 0;
     font-family: "shlop", sans-serif;
-    letter-spacing: 3px; 
+    letter-spacing: 3px;
     font-size: 36px;
-    
+
 }
 
-.item-description{
+.item-description {
     font-family: "shlop", sans-serif;
-    letter-spacing: 3px; 
+    letter-spacing: 3px;
     font-size: 26px;
-    
+
 }
 
-.market-action{
+.market-action {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 0;
 }
 
-.price{
+.price {
     font-family: "shlop", sans-serif;
     font-size: 32px;
-    color: antiquewhite;
+    color: hsl(35, 77%, 91%);
 }
 
-.button-market{
-    background-color: #49485A;
-    border: 7px solid #1E2133;
-    border-radius: 10px;
-    width: 110px;
-    height: 60px;
-    cursor: pointer;
-    margin-right: 30px;
-    font-family: "shlop", sans-serif;
-    font-size: 26px;
-    color: #1E2133;
-}
-
-.coin-img{
+.coin-img {
     width: 40px;
     height: 40px;
 }
 
-.item-buy-img{
+.item-buy-img {
     width: 100px;
     height: auto;
 }
 
-.items-market-container{
+.items-market-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     position: absolute;
     top: 51%;
     left: 12.5%;
-    
+
     width: 950px;
     height: 200px;
 }
 
-.items-market{
+.items-market {
     margin: 15px;
     width: auto;
     height: 110px;
 }
 
-.main-title{
+.items-market,
+.items-inventory,
+.potion img,
+.item-buy-img,
+.potion-selected {
+    transition: transform 0.18s ease;
+}
+
+.items-market:hover,
+.items-inventory:hover,
+.potion img:hover,
+.item-buy-img:hover,
+.potion-selected:hover {
+    transform: translateY(-6px) scale(1.40);
+}
+
+.main-title {
     font-family: "shlop", sans-serif;
     font-size: 100px;
-    color: rgb(147, 146, 150);
+    color: hsl(255, 2%, 58%);
     text-align: center;
     margin-bottom: 100px;
-     -webkit-text-stroke: 0.1px hsl(0, 0%, 0%);
-}
-
-.button-exit{
-    position: absolute;
-    margin-left: 570px;
-    margin-top: 10px;
-    top: 5%;
-    left: -40%;
-}
-
-.buttons-style{
-
-    display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+    -webkit-text-stroke: 0.1px hsl(0, 0%, 0%);
 }
 
 .buttons-style {
@@ -470,26 +464,25 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
-   
 }
 
 .buttons .buttons-style img,
 .buttons-style img {
-    transition: transform 0.5s ease, filter 3s ease, margin 0.3s ease;;
-    
+    transition: transform 0.5s ease, filter 0.3s ease, margin 0.3s ease;
 }
 
 .buttons .buttons-style img:hover,
 .buttons-style img:hover {
     transform: scale(1.2);
-    filter: drop-shadow(0 0 25px hsl(248, 16%, 10%));
     margin-block: 20px;
+    filter: brightness(1.6) drop-shadow(0 6px 18px hsla(0, 0%, 0%, 0.6));
     transition: all 0.3s ease;
 }
 
-
-
 .button-exit {
+    position: absolute;
+    top: 5%;
+    left: -40%;
     margin-left: 570px;
     margin-top: 10px;
 }
@@ -518,6 +511,21 @@ body {
     font-family: "shlop", sans-serif;
     font-size: 26px;
     color: hsl(231, 26%, 16%);
+}
+
+.button-market,
+.button-cauldron {
+    transition: transform 0.18s ease;
+}
+
+.button-market:hover,
+.button-cauldron:hover {
+    transform: translateY(-6px) scale(1.15);
+}
+
+.button-cauldron:hover,
+.button-market:hover {
+    background-color: hsl(243, 9%, 40%);
 }
 
 /* -----------------------------
@@ -631,63 +639,7 @@ body {
 /* -----------------------------
        6) Pociones
        ----------------------------- */
-.potions-container {
-    position: absolute;
-    top: 6%;
-    left: 45%;
-    border-radius: 10px;
-    width: 575px;
-    height: 640px;
-}
 
-.potions-craft-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.potion {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-    background-color: hsl(319, 15%, 21%);
-    border: 10px solid hsl(316, 15%, 15%);
-    border-radius: 10px;
-    width: 150px;
-    height: 150px;
-}
-
-.craft-potion {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px;
-    background-color: hsl(319, 15%, 21%);
-    border: 10px solid hsl(316, 15%, 15%);
-    border-radius: 10px;
-    width: 550px;
-    height: 200px;
-}
-
-.ingredientes-container {
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.description-potion {
-    margin: 0;
-    padding: 0;
-}
-
-.ingrediente {
-    width: 40px;
-    margin: 0;
-}
-
-.potion-selected {
-    margin: 15px;
-    height: 150px;
-}
 
 /* -----------------------------
        7) Paneles / Inventario / Contenedores
@@ -731,9 +683,30 @@ body {
     box-shadow: 0 0 10px hsl(0, 0%, 0%);
 }
 
+<<<<<<< HEAD
 /*-----------------------------
        8) Lobby, el boton hacía singUp  
        ----------------------------- */
 
 
+=======
+/* sss */
+
+.farm-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem 2rem;
+    padding: 0;
+    position: absolute;
+    top: 37%;
+    left: 27%;
+    /*background: #3D2D38;*/
+    width: 520px;
+    height: 280px;
+    margin: 11px 10px 10px 30px;
+}
+
+.plants {
+    width: 50px;
+>>>>>>> origin/main
 }

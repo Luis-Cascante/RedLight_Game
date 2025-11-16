@@ -103,6 +103,13 @@ app.component('views-game', {
                 document.body.style.cursor = "auto";
                 this.$emit("tool-selected", null);
             }
+
+            if (tool === "store-panel" || tool === "cauldron-panel" || tool === "inventory-panel" || tool === "main-menu") {
+                // desactiva cualquier herramienta em curso
+                this.activeTool = null;
+                document.body.style.cursor = "auto";
+                this.$emit("tool-selected", null);
+            }
         }
     },
     template: /*html*/ `
@@ -113,7 +120,6 @@ app.component('views-game', {
         <h1 class="main-title"> RedLight Farm </h1>
 
         <div class="buttons">
-            
             <button v-on:click="updateView('game-panel')" class="buttons-style"><img src="./img/startGame-btn.png" alt="instructions button"></button>
             <button v-on:click="updateView('instructions')" class="buttons-style"><img src="./img/instructions-btn.png" alt="instructions button"></button>
             <button v-on:click="updateView('lore')" class="buttons-style"><img src="./img/lore-btn.png" alt="lore button"></button>
@@ -150,7 +156,21 @@ app.component('views-game', {
             <!-- Background Image -->
             <div class="game-area">
                 <img src="./img/GameLayer.png" alt="Game Layer">
-            </div>
+                <div class="farm-panel">
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                </div>
+        </div>
 
             <!-- Buttons Panel -->
             <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
@@ -230,11 +250,20 @@ app.component('views-game', {
                 <div class="craft-potion">
                     <div class="description-potion">
                         <h2>Potion name</h2>
-                        <p>requiere:</p>
+                        <p class="description-potion-requirement">requiere:</p>
                         <div class="ingredientes-container">
-                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>5</p>
-                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>3</p>
-                            <img class="ingrediente" src="./img/item-spiderweb.png" alt=""><p>4</p>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
+                            <div class="ingrediente-item">
+                                <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
+                                <p class="ingrediente-qty">5</p>
+                            </div>
                         </div>
                         <button class="button-cauldron">Produce</button>
                     </div>
