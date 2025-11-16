@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <!-- Import Styles -->
+  <link rel="stylesheet" href="./css/priuebas.css"/>
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body class="page-signUp">
+  <div id="app">
+
+    <signup-form :form="form" :submitF="submitF"  @submit-form="submitForm"></signup-form>
+
+  </div>
+
+
+  <script src="./js/mainSignUp.js"></script>
+  <script src="./js/signUpForm.js"></script>
+
+  <script>const mountedApp = app.mount("#app");</script>
+
+</body>
+</html> 

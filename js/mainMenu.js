@@ -32,8 +32,15 @@ const app = Vue.createApp({
         updateView(selectedView){
             this.selectedView=selectedView;
             return this.selectedView;
+        },
+
+        signOutAndRedirect() {
+        console.log('Saliendo y redirigiendo a otro.html');
+        window.location.href = 'otro.html';
         }
     }
+
+    
 });
 
 

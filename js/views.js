@@ -15,9 +15,19 @@ app.component('views-game', {
     },
     methods: {
         updateView(selectedView) {
+
+            if (selectedView === 'lobby') {
+            console.log('Redireccionando a index.html');
+            window.location.href = 'index.html';
+            
+           
+            return; 
+        }
+
             this.$emit("selected-view", selectedView)
         },
 
+        
 
         // metodo para seleccionar herramienta
         selectTool(tool) {
@@ -107,7 +117,7 @@ app.component('views-game', {
             <button v-on:click="updateView('game-panel')" class="buttons-style"><img src="./img/startGame-btn.png" alt="instructions button"></button>
             <button v-on:click="updateView('instructions')" class="buttons-style"><img src="./img/instructions-btn.png" alt="instructions button"></button>
             <button v-on:click="updateView('lore')" class="buttons-style"><img src="./img/lore-btn.png" alt="lore button"></button>
-            <button v-on:click="updateView('main-menu')" class="buttons-style"><img src="./img/signOut-btn.png" alt="signout button"></button>
+            <button v-on:click="updateView('lobby')" class="buttons-style"><img src="./img/signOut-btn.png" alt="signout button"></button>
         </div>
     </div>
 

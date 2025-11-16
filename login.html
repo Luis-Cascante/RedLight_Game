@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Mastery</title>
+  <!-- Import Styles -->
+  <link rel="stylesheet"  href="./css/priuebas.css" />
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    
+<body class="page-login">
+  
+    <div id="app">
+
+        <login-form :form="form" :submit-f="submitF" @submit-form="submitForm"></login-form>
+
+    </div>
+
+    <script src="./js/mainLogin.js"></script>
+    <script src="./js/loginForm.js"></script>
+
+    <script>const mountedApp = app.mount("#app");</script>
+
+</body>

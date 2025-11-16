@@ -1,38 +1,24 @@
-<!DOCTYPE html> 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.typekit.net/frt0jxj.css">
-    <!--<link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/game.css">-->
-    <link rel="stylesheet" href="./css/priuebas.css">
-
-    <!-- Importando Vue.js-->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    
-    <title>RedLight - Farm</title>
+    <title>Lobby</title>
+    <link rel="stylesheet" href="./css/priuebas.css"> 
 </head>
 <body>
-    <!-- <div class="buttons">
-        <h1 class="main-title"> RedLight Farm </h1>
-        <button class="buttons-style"> <a href="start.html"> <img src="./img/startGame-btn.png" alt="instructions button"></a> </button>
-        <button class="buttons-style"> <a href="instructions.html"> <img src="./img/instructions-btn.png" alt="instructions button"></a> </button>
-        <button class="buttons-style"> <a href="lore.html"> <img src="./img/lore-btn.png" alt="lore button"></a> </button>
-        <button class="buttons-style"> <a href="signout.html"> <img src="./img/signOut-btn.png" alt="signout button"></a> </button>
-    </div> -->
 
-    <div id="app">
-        <views-game :selected-view="selectedView" @selected-view="updateView"></views-game>
+    <div class="lobby">
+
+        <img src="./img/BackgroundPlay.png" alt="Background Play"> </img>
+
+        <div>
+
+         <a href="signUp.html" class="play-btn">PLAY</a>
+
+        </div>
+
     </div>
-
-     
-     <script src="./js/script.js"></script>
-     <script src="./js/gameButtons.js"></script>
-     <script src="./js/toolsButtons.js"></script>
-     <script src="./js/views.js"></script>
-
-     <script> const mountedApp = app.mount('#app'); </script>
-
+    
 </body>
 </html>
