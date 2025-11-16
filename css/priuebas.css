@@ -257,6 +257,16 @@ body {
     transform: scale(1.2);
 }
 
+.play-btn{
+    position: absolute;
+    top: 45%;
+    left: -15%;
+    margin-left: 570px;
+    margin-top: 10px;
+    width: 350px;
+    height: 200px;
+}
+
 /* -----------------------------
        6) Pociones
        ----------------------------- */
@@ -683,6 +693,10 @@ body {
 /*-----------------------------
        8) Lobby, el boton hacía singUp  
        ----------------------------- */
+
+.lobby{
+    position: relative;
+}
 
 
 /* sss */
