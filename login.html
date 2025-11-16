@@ -11,19 +11,15 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
-<body>
-    
-<body class="page-login">
-  
-    <div id="app">
+<body class="auth-page page-login">
 
-        <login-form :form="form" :submit-f="submitF" @submit-form="submitForm"></login-form>
+  <div id="app" class="auth-card-wrapper">
+    <login-form :form="form" :submit-f="submitF" @submit-form="submitForm"></login-form>
+  </div>
 
-    </div>
+  <script src="./js/mainLogin.js"></script>
+  <script src="./js/loginForm.js"></script>
 
-    <script src="./js/mainLogin.js"></script>
-    <script src="./js/loginForm.js"></script>
-
-    <script>const mountedApp = app.mount("#app");</script>
+  <script>const mountedApp = app.mount("#app");</script>
 
 </body>

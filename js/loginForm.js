@@ -14,29 +14,25 @@ props: {
     }
   },
 
- template: /*html*/ `
-<div class="login-form"> 
+template: /*html*/ `
+<div class="auth-card">
   <h2>Access account</h2>
 
-  <div>
-    <label>Email </label>
-    <input type="email" v-model="form.email" placeholder="your.email@example.com">
+  <div class="auth-row">
+    <label for="email">Email</label>
+    <input id="email" type="email" v-model="form.email" placeholder="your.email@example.com">
   </div>
 
-  <div>
-    <label>Password</label>
-    <input type="password" v-model="form.password" placeholder="Enter password">
+  <div class="auth-row">
+    <label for="password">Password</label>
+    <input id="password" type="password" v-model="form.password" placeholder="Enter password">
   </div>
 
-
-
- <div class="btn-enter"> 
- <button @click="submitForm">{{ submitF }}</button>
-
-<a href="signUp.html">Sign Up</a>
-</div>
-
+  <div class="auth-actions btn-enter">
+    <button class="btn-primary" @click="submitForm">{{ submitF }}</button>
+    <a class="btn-secondary" href="signUp.html">Sign Up</a>
+  </div>
 
 </div>
- `
+`
 });

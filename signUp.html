@@ -11,13 +11,38 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
-<body class="page-signUp">
-  <div id="app">
+<body class="auth-page page-signUp">
+  <div id="app" class="auth-card-wrapper">
+    <div class="auth-card">
+      <h2>Create account</h2>
 
-    <signup-form :form="form" :submitF="submitF"  @submit-form="submitForm"></signup-form>
+      <div class="auth-row">
+        <label for="username">User Name</label>
+        <input id="username" type="text" placeholder="Enter your name">
+      </div>
 
+      <div class="auth-row">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="your.email@example.com">
+      </div>
+
+      <div class="auth-row">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Create a password">
+      </div>
+
+      <div class="auth-row">
+        <label for="farmName">Farm Name</label>
+        <input id="farmName" type="text" placeholder="Name your farm">
+      </div>
+
+      <div class="auth-actions">
+        <button class="btn-primary">Sign Up</button>
+        <a class="btn-secondary" href="login.html">Login</a>
+      </div>
+
+    </div>
   </div>
-
 
   <script src="./js/mainSignUp.js"></script>
   <script src="./js/signUpForm.js"></script>
