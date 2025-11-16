@@ -110,6 +110,7 @@ app.component('views-game', {
                 document.body.style.cursor = "auto";
                 this.$emit("tool-selected", null);
             }
+            
         }
     },
     template: /*html*/ `
@@ -198,20 +199,20 @@ app.component('views-game', {
                         <p class="price">100</p>
                     </div>
                 </div>
-                <img class="item-buy-img" src="img/itemPocion.png" alt="potion">
+                <img class="item-buy-img" src="img/item-potion4.png" alt="potion">
             </div>
 
             <!-- Items Market Container -->
             <div class="items-market-container">
                 <img class="items-market" src="img/item-potion1.png" alt="">
                 <img class="items-market" src="img/item-potion2.png" alt="">
-                <img class="items-market" src="img/itemPocion.png" alt="">
+                <img class="items-market" src="img/item-potion3.png" alt="">
                 <img class="items-market" src="img/item-potion1.png" alt="">
                 <img class="items-market" src="img/item-potion2.png" alt="">
                 <img class="items-market" src="img/item-spiderweb.png" alt="">
                 <img class="items-market" src="img/item-potion1.png" alt="">
                 <img class="items-market" src="img/item-potion2.png" alt="">
-                <img class="items-market" src="img/itemPocion.png" alt="">
+                <img class="items-market" src="img/item-potion3.png" alt="">
                 <img class="items-market" src="img/item-potion1.png" alt="">
                 <img class="items-market" src="img/item-potion2.png" alt="">
                 <img class="items-market" src="img/item-spiderweb.png" alt="">
@@ -241,16 +242,16 @@ app.component('views-game', {
             <div class="potions-container">
                 <div class="potions-craft-container">
                     <div class="potion"><img src="img/item-potion1.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion2.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion3.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion4.png" alt=""></div>
                     <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
-                    <div class="potion"><img src="img/item-potion1.png" alt=""></div>
+                    <div class="potion"><img src="img/item-potion2.png" alt=""></div>
                 </div>
                 <div class="craft-potion">
                     <div class="description-potion">
                         <h2>Potion name</h2>
-                        <p class="description-potion-requirement">requiere:</p>
+                        <p class="description-potion-requirement">require:</p>
                         <div class="ingredientes-container">
                             <div class="ingrediente-item">
                                 <img class="ingrediente-img" src="img/item-spiderweb.png" alt="">
@@ -288,21 +289,21 @@ app.component('views-game', {
                 <div class="items-inventory-container">
                     <img class="items-inventory" src="img/item-potion1.png" alt="">
                     <img class="items-inventory" src="img/item-potion2.png" alt="">
-                    <img class="items-inventory" src="img/itemPocion.png" alt="">
+                    <img class="items-inventory" src="img/item-potion3.png" alt="">
+                    <img class="items-inventory" src="img/item-potion4.png" alt="">
                     <img class="items-inventory" src="img/item-potion1.png" alt="">
-                    <img class="items-inventory" src="img/item-potion2.png" alt="">
                     <img class="items-inventory" src="img/item-spiderweb.png" alt="">
                     <img class="items-inventory" src="img/item-potion1.png" alt="">
                     <img class="items-inventory" src="img/item-potion2.png" alt="">
-                    <img class="items-inventory" src="img/itemPocion.png" alt="">
+                    <img class="items-inventory" src="img/item-potion3.png" alt="">
+                    <img class="items-inventory" src="img/item-potion4.png" alt="">
                     <img class="items-inventory" src="img/item-potion1.png" alt="">
-                    <img class="items-inventory" src="img/item-potion2.png" alt="">
                     <img class="items-inventory" src="img/item-spiderweb.png" alt="">
                     <img class="items-inventory" src="img/item-potion1.png" alt="">
                     <img class="items-inventory" src="img/item-potion2.png" alt="">
-                    <img class="items-inventory" src="img/itemPocion.png" alt="">
+                    <img class="items-inventory" src="img/item-potion3.png" alt="">
+                    <img class="items-inventory" src="img/item-potion4.png" alt="">
                     <img class="items-inventory" src="img/item-potion1.png" alt="">
-                    <img class="items-inventory" src="img/item-potion2.png" alt="">
                     <img class="items-inventory" src="img/item-spiderweb.png" alt="">
                 </div>
             

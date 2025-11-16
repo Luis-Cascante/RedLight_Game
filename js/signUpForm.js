@@ -1,17 +1,17 @@
 app.component('signup-form', {
-props: {
-    
+  props: {
+
     form: { type: Object, required: true }
 
   },
- 
-  methods: {  
-     submitForm() {
+
+  methods: {
+    submitForm() {
       this.$emit('submit-form');
     }
   },
 
- template: /*html*/ `
+  template: /*html*/ `
 
 
 <section> 
@@ -23,7 +23,7 @@ props: {
   </div> 
 
   <div>
-    <label>Email </label>
+    <label>Email</label>
     <input type="email" v-model="form.email" placeholder="your.email@example.com" required>
   </div>
 
@@ -32,20 +32,11 @@ props: {
     <input type="password" v-model="form.password" placeholder="Create a password" required>
   </div>
 
-
-  <div>
-
-    <label>Farm Name</label>
-    <input type="text" v-model="form.farmName" placeholder="Name your farm" required>
-
-  </div>
-
     <div> 
-
     <button @click="submitForm" type="button" class="button-form">Sign Up</button>
     <a href="login.html">Login</a>
-
 </div>
+
 </section>
  `
 });
