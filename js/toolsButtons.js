@@ -1,32 +1,32 @@
 app.component('tools-buttons', {
 
-emits: ['select-tool'],
+    emits: ['select-tool'],
 
-props: {
-
-
-    activeTools: {
-
-        type: String,
-        default: null
-
-    }
+    props: {
 
 
-},
+        activeTools: {
 
-methods: {
+            type: String,
+            default: null
 
-selectTool(tool){
+        }
 
 
- this.$emit("select-tool", tool);
+    },
 
-}
+    methods: {
 
-},
+        selectTool(tool) {
 
-template: /*html*/`
+
+            this.$emit("select-tool", tool);
+
+        }
+
+    },
+
+    template: /*html*/`
 
  <div class="buttons-container tools-container">
                 <div class="buttons-panel tools-panel">

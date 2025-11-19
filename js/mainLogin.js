@@ -3,20 +3,21 @@ const app = Vue.createApp({
   data() {
     return {
       submitF: "Log In",
-      form:{email: '',
-      password: '',
+      form: {
+        email: '',
+        password: '',
       }
     };
   },
 
 
   methods: {
-submitForm() {
+    submitForm() {
       console.log("formulario enviado");
-      window.location.href = './menu.html'; 
+      window.location.href = './menu.html';
     }
-    }
-  
+  }
+
 });
 
 

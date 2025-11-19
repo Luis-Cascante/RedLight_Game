@@ -24,23 +24,23 @@ const app = Vue.createApp({
                 { description: 'Earn 100 cash', completed: false }
             ]
 
-            
-            
+
+
         };
     },
-    methods:{
-        updateView(selectedView){
-            this.selectedView=selectedView;
+    methods: {
+        updateView(selectedView) {
+            this.selectedView = selectedView;
             return this.selectedView;
         },
 
         signOutAndRedirect() {
-        console.log('Saliendo y redirigiendo a otro.html');
-        window.location.href = 'otro.html';
+            console.log('Saliendo y redirigiendo a otro.html');
+            window.location.href = 'otro.html';
         }
     }
 
-    
+
 });
 
 

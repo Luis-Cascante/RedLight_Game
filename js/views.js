@@ -17,17 +17,17 @@ app.component('views-game', {
         updateView(selectedView) {
 
             if (selectedView === 'lobby') {
-            console.log('Redireccionando a index.html');
-            window.location.href = 'index.html';
-            
-           
-            return; 
-        }
+                console.log('Redireccionando a index.html');
+                window.location.href = 'index.html';
+
+
+                return;
+            }
 
             this.$emit("selected-view", selectedView)
         },
 
-        
+
 
         // metodo para seleccionar herramienta
         selectTool(tool) {
@@ -110,9 +110,29 @@ app.component('views-game', {
                 document.body.style.cursor = "auto";
                 this.$emit("tool-selected", null);
             }
-            
         }
+        ,
+
+        tryRemovePlant(idex) {
+            // funciona si la herramienta esta activa 
+            if (this.activeTool !== "scythe") return;
+
+            // obtener la imagen 
+            const img = idex.currentTarget || idex.target;
+
+            // poner clase para la animacion y luego quitar el elemento
+            img.classList.add("removing");
+            setTimeout(() => {
+                // en vez de eliminar el nodo (que hace que el grid se reordene),
+                // ocultamos la imagen para que el espacio quede reservado.
+                img.classList.remove("removing");
+                img.style.visibility = "hidden"; // mantiene el espacio en el layout
+                img.style.pointerEvents = "none"; // evitar futuros clicks
+            }, 180);
+        }
+
     },
+
     template: /*html*/ `
 
     <!-- Main Menu Panel -->
@@ -158,18 +178,18 @@ app.component('views-game', {
             <div class="game-area">
                 <img src="./img/GameLayer.png" alt="Game Layer">
                 <div class="farm-panel">
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
-                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt=""></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
+                    <div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>
                 </div>
         </div>
 

@@ -1,44 +1,44 @@
 app.component('game-buttons', {
 
-emits: ['select-tool' , 'selected-view'],
+    emits: ['select-tool', 'selected-view'],
 
-props: {
+    props: {
 
 
-    activeTools: {
+        activeTools: {
 
-        type: String,
-        default: null
+            type: String,
+            default: null
+
+        },
+
+        selectedView: {
+
+            type: String,
+            default: null
+        },
+
 
     },
 
-    selectedView: {
+    methods: {
 
-        type: String,
-        default: null
+        updateView(selectedView) {
+
+            this.$emit("selected-view", selectedView)
+
+        },
+
+        selectTool(tool) {
+
+
+            this.$emit("select-tool", tool);
+
+        }
+
     },
 
-
-},
-
-methods: {
-
-updateView(selectedView) {
-    
-    this.$emit("selected-view", selectedView)
-
- },
-
-selectTool(tool){
-
-
- this.$emit("select-tool", tool);
-
-}
-
-},
-
-template: /*html*/`
+    template: /*html*/`
 
  <div class="buttons-container">
     <button v-on:click="$emit('select-tool','resume'); $emit('selected-view','game-panel')"><img src="./img/ResumeBtn.png" alt="resume"></button>
@@ -48,5 +48,5 @@ template: /*html*/`
     <button v-on:click="$emit('select-tool','main-menu'); $emit('selected-view', 'main-menu')"><img src="./img/exit-btn.png" alt="exit"></button>
 </div>
 `
-    
+
 });

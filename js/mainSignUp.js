@@ -2,7 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       submitF: "Sign Up",
-       form: {
+      form: {
         email: "",
         name: "",
         password: "",
@@ -10,9 +10,9 @@ const app = Vue.createApp({
     };
   },
   methods: {
-   submitForm() {
+    submitForm() {
       console.log("formulario enviado");
-      window.location.href = './menu.html'; 
+      window.location.href = './menu.html';
     }
   },
 });

@@ -1,20 +1,20 @@
 app.component('login-form', {
-    
-props: {
-  submitF: { type: String, required: true },
+
+  props: {
+    submitF: { type: String, required: true },
     form: { type: Object, required: true }
 
 
   },
 
-  
+
   methods: {
-      submitForm() {
+    submitForm() {
       this.$emit('submit-form');
     }
   },
 
-template: /*html*/ `
+  template: /*html*/ `
 <div class="auth-card">
   <h2>Access account</h2>
 
