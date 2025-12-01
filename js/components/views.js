@@ -8,6 +8,14 @@ app.component('views-game', {
             type: String,
             default: null
         },
+        potionSelected: {
+            type: Object,
+            required: true
+        },
+        itemSelected: {
+            type: Object,
+            required: true
+        },
         plotsFarm: {
             type: Array,
             required: true
@@ -19,6 +27,14 @@ app.component('views-game', {
         itemsStore:{
                 type: Array,
                 required: true,
+        },
+        potionList:{
+            type: Array,
+            required: true,
+        },
+        ingredientsList:{
+            type: Array,
+            required: true,
         },
     },
     computed: {
@@ -59,6 +75,12 @@ app.component('views-game', {
         },
         waterPlot(plotId){
             this.$emit("water-plot", plotId);
+        },
+        selectPotion(potion){
+            this.$emit("potion-selected", potion);
+        },
+        selectItemStore(item){
+            this.$emit("itemstore-selected", item);
         }
 
     },
@@ -127,19 +149,24 @@ app.component('views-game', {
         @remove-plant="removePlant"
         @plant-in-plot="plantInPlot"
         @fertilize-plot="fertilizePlot"
-        @water-plot="waterPlot"
+        @water-plot="waterPlot"></farm-panel>
     </div>
 
     <!-- Cauldron Panel -->
     <div v-else-if="selectedView === 'cauldron-panel'">
-        <cauldron-panel @select-tool='selectTool' @selected-view="updateView"></cauldron-panel>
+        <cauldron-panel
+        :potion-list="potionList"
+        :potion-selected="potionSelected"
+        :ingredients-list="ingredientsList" 
+        @selected-view="updateView"
+        @potion-selected="selectPotion"
+        ></cauldron-panel>
     </div>
 
      <!-- Inventory Panel -->
     <div v-else-if="selectedView === 'inventory-panel'">
         <inventory-panel 
-        :inventory="inventory"
-        @select-tool='selectTool' 
+        :inventory="inventory" 
         @selected-view="updateView"></inventory-panel>
     </div>
 
@@ -147,7 +174,8 @@ app.component('views-game', {
     <div v-else-if="selectedView === 'store-panel'">
         <store-panel
         :items-store="itemsStore"
-        @select-tool='selectTool' 
+        :item-selected="itemSelected"
+        @itemstore-selected="selectItemStore"
         @selected-view="updateView"></store-panel>
     </div>
     `

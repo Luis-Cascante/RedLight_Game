@@ -41,19 +41,20 @@ const app = Vue.createApp({
             ],
 
             itemsStore: [
-                { id: 1, item: 'spiderweb', price: 50, image: './img/item-spiderweb.png' },
-                { id: 2, item: 'potion1', price: 50, image: './img/item-potion1.png' },
-                { id: 3, item: 'potion2', price: 50, image: './img/item-potion2.png' },
-                { id: 4, item: 'potion3', price: 50, image: './img/item-potion3.png' },
-                { id: 5, item: 'potion4', price: 50, image: './img/item-potion4.png' },
-                { id: 6, item: 'spiderweb', price: 50, image: './img/item-spiderweb.png' },
-                { id: 7, item: 'potion1', price: 50, image: './img/item-potion1.png' },
-                { id: 8, item: 'potion2', price: 50, image: './img/item-potion2.png' },
-                { id: 9, item: 'potion3', price: 50, image: './img/item-potion3.png' },
-                { id: 10, item: 'potion4', price: 50, image: './img/item-potion4.png' },
-                { id: 11, item: 'spiderweb', price: 50, image: './img/item-spiderweb.png' },
-                { id: 12, item: 'potion4', price: 50, image: './img/item-potion4.png' },
+                { id: 1, item: 'spiderweb', description: 'A sticky spiderweb', price: 50, image: './img/item-spiderweb.png' },
+                { id: 2, item: 'potion1', description: 'A magical potion', price: 50, image: './img/item-potion1.png' },
+                { id: 3, item: 'potion2', description: 'A magical potion', price: 50, image: './img/item-potion2.png' },
+                { id: 4, item: 'potion3', description: 'A magical potion', price: 50, image: './img/item-potion3.png' },
+                { id: 5, item: 'potion4', description: 'A magical potion', price: 50, image: './img/item-potion4.png' },
+                { id: 6, item: 'spiderweb', description: 'A sticky spiderweb', price: 50, image: './img/item-spiderweb.png' },
+                { id: 7, item: 'potion1', description: 'A magical potion', price: 50, image: './img/item-potion1.png' },
+                { id: 8, item: 'potion2', description: 'A magical potion', price: 50, image: './img/item-potion2.png' },
+                { id: 9, item: 'potion3', description: 'A magical potion', price: 50, image: './img/item-potion3.png' },
+                { id: 10, item: 'potion4', description: 'A magical potion', price: 50, image: './img/item-potion4.png' },
+                { id: 11, item: 'spiderweb', description: 'A sticky spiderweb', price: 50, image: './img/item-spiderweb.png' },
+                { id: 12, item: 'potion4', description: 'A magical potion', price: 50, image: './img/item-potion4.png' },
             ],
+            itemSelected: { id: 1, item: 'spiderweb', description: 'A sticky spiderweb', price: 50, image: './img/item-spiderweb.png' },
 
             cash: 0,
 
@@ -61,6 +62,26 @@ const app = Vue.createApp({
                 { id: 1, type: 'spideyFlower', imgStages: ['./img/spideyFlower_stage1.png', './img/spideyFlower_stage2.png', './img/spideyFlower_stage3.png'] },
                 { id: 2, type: 'squidPumpkin', imgStages: ['./img/squidPumpkin_stage1.png', './img/squidPumpkin_stage2.png', './img/squidPumpkin_stage3.png'] },
             ],
+
+            ingredientsList: [
+                { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
+                { id: 2, item: 'unicornDust', quantity: 5, image: './img/item-unicornDust.png' },
+                { id: 3, item: 'dragonScale', quantity: 5, image: './img/item-dragonScale.png' },
+            ],
+
+            potionList:[
+                { id: 1, name: 'namePotion1', price: 50, ingredients: [ 
+                    { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
+                    { id: 2, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' }
+                 ], image: './img/item-potion1.png' },
+                { id: 2, name: 'namePotion2', price: 50, ingredients: [], image: './img/item-potion2.png' },
+                { id: 3, name: 'namePotion3', price: 50, ingredients: [], image: './img/item-potion3.png' },
+                { id: 4, name: 'namePotion4', price: 50, ingredients: [], image: './img/item-potion4.png' },
+            ],
+            potionSelected: { id: 1, name: 'namePotion1', price: 50, ingredients: [ 
+                { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
+                { id: 2, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' }
+            ], image: './img/item-potion1.png' },
 
             cycleDayNight: 'night',
 
@@ -180,6 +201,14 @@ const app = Vue.createApp({
             }
 
             console.log("Watering plot:", plotId);
+        },
+
+        selectPotion(potion){
+            this.potionSelected = potion;
+        },
+
+        selectItemStore(item){
+            this.itemSelected = item;
         }
     }
 });

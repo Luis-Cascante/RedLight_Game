@@ -8,11 +8,18 @@ app.component('store-panel',{
                 type: Array,
                 required: true,
         },
+        itemSelected: {
+            type: Object,
+            required: true
+        },
     },
     methods: {
         updateView(selectedView) {
             this.$emit("selected-view", selectedView);
         },
+        selectItemStore(item){
+            this.$emit("itemstore-selected", item);
+        }
     },
     template: /*html*/`
     <!-- Game Wrapper -->
@@ -23,15 +30,15 @@ app.component('store-panel',{
             <img src="img/store-panel.png" alt="store-background">
             <div class="buy-item-container">
                 <div class="item-buy-description">
-                    <h2>item name</h2>
-                    <p class="item-description">item description</p>
+                    <h2>{{ itemSelected?.item }} </h2>
+                    <p class="item-description">{{ itemSelected?.description }}</p>
                     <div class="market-action">
                         <button class="button-market">buy item</button>
                         <img class="coin-img" src="img/coin.png" alt="money">
-                        <p class="price">100</p>
+                        <p class="price">{{ itemSelected?.price }}</p>
                     </div>
                 </div>
-                <img class="item-buy-img" src="img/item-potion4.png" alt="potion">
+                <img class="item-buy-img" :src="itemSelected?.image" :alt="itemSelected?.item">
             </div>
 
             <!-- Items Market Container -->
@@ -40,7 +47,8 @@ app.component('store-panel',{
                     <img 
                     :src="item.image"
                     class="items-market" 
-                    :alt="item.item">
+                    :alt="item.item"
+                    @click="selectItemStore(item)">
                 </div>
                 <!--<img class="items-market" src="img/item-spiderweb.png" alt="">-->
             </div>

@@ -20,12 +20,17 @@
         :selected-view="selectedView" @selected-view="updateView"
         :active-tool="activeTool" @tool-selected="selectTool"
         :plots-farm="plotsFarm"
+        :potion-list="potionList"
+        :potion-selected="potionSelected"
         :inventory="inventory"
         :items-store="itemsStore"
+        :item-selected="itemSelected"
+        @itemstore-selected="selectItemStore"
         @remove-plant="removePlant"
         @plant-in-plot="plantInPlot"
         @fertilize-plot="fertilizePlot"
         @water-plot="waterPlot"
+        @potion-selected="selectPotion"
         ></views-game>
     </div>
 
