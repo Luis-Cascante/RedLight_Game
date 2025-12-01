@@ -1,39 +1,21 @@
 app.component('game-buttons', {
-
-    emits: ['select-tool', 'selected-view'],
-
     props: {
-
-
         activeTools: {
-
             type: String,
             default: null
-
         },
-
         selectedView: {
-
             type: String,
             default: null
         },
-
-
     },
-
     methods: {
-
         updateView(selectedView) {
-
             this.$emit("selected-view", selectedView)
-
         },
 
         selectTool(tool) {
-
-
             this.$emit("select-tool", tool);
-
         }
 
     },

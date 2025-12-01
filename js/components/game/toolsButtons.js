@@ -1,29 +1,15 @@
 app.component('tools-buttons', {
-
-    emits: ['select-tool'],
-
     props: {
-
-
         activeTools: {
-
             type: String,
             default: null
-
         }
-
-
     },
 
     methods: {
-
         selectTool(tool) {
-
-
             this.$emit("select-tool", tool);
-
         }
-
     },
 
     template: /*html*/`

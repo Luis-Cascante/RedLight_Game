@@ -1,0 +1,154 @@
+app.component('views-game', {
+    props: {
+        selectedView: {
+            type: String,
+            default: "lobby",
+        },
+        activeTool: {
+            type: String,
+            default: null
+        },
+        plotsFarm: {
+            type: Array,
+            required: true
+        },
+        inventory: {
+            type: Array,
+            required: true
+        },
+        itemsStore:{
+                type: Array,
+                required: true,
+        },
+    },
+    computed: {
+
+    },
+    methods: {
+        updateView(selectedView) {
+
+            if (selectedView === 'lobby') {
+                console.log('Redireccionando a index.html');
+                window.location.href = 'index.html';
+
+
+                return;
+            }
+
+            this.$emit("selected-view", selectedView)
+        },
+
+
+
+        // metodo para seleccionar herramienta
+        selectTool(tool) {
+            this.$emit("tool-selected", tool);
+            console.log("Tool selected:", tool);
+        }
+        ,
+
+        tryRemovePlant(idex) {
+            // funciona si la herramienta esta activa 
+            if (this.activeTool !== "scythe") return;
+
+            // obtener la imagen 
+            const img = idex.currentTarget || idex.target;
+
+            // poner clase para la animacion y luego quitar el elemento
+            img.classList.add("removing");
+            setTimeout(() => {
+                // en vez de eliminar el nodo (que hace que el grid se reordene),
+                // ocultamos la imagen para que el espacio quede reservado.
+                img.classList.remove("removing");
+                img.style.visibility = "hidden"; // mantiene el espacio en el layout
+                img.style.pointerEvents = "none"; // evitar futuros clicks
+            }, 180);
+        }
+
+    },
+
+    template: /*html*/ `
+
+    <!-- lobby Panel -->
+    <div v-if="selectedView === 'lobby'">
+        <div class="lobby">
+            <img src="./img/BackgroundPlay.png" alt="Background Play"> </img>
+            <button v-on:click="updateView('login')" class="play-btn">PLAY</button>
+        </div>
+    </div>
+
+    <!-- login Panel -->
+    <div v-else-if="selectedView === 'login'">
+    
+        <login-panel @selected-view="updateView"></login-panel>
+    </div>
+
+    <!-- singUp Panel -->
+    <div v-else-if="selectedView === 'signup'">
+
+        <sign-up-panel :selected-view="selectedView" @selected-view="updateView"></sign-up-panel>
+    </div>
+
+    <!-- Main Menu Panel -->
+    <div v-else-if="selectedView === 'main-menu'"> 
+
+        <h1 class="main-title"> RedLight Farm </h1>
+
+        <div class="buttons">
+            <button v-on:click="updateView('game-panel')" class="buttons-style"><img src="./img/startGame-btn.png" alt="instructions button"></button>
+            <button v-on:click="updateView('instructions')" class="buttons-style"><img src="./img/instructions-btn.png" alt="instructions button"></button>
+            <button v-on:click="updateView('lore')" class="buttons-style"><img src="./img/lore-btn.png" alt="lore button"></button>
+            <button v-on:click="updateView('lobby')" class="buttons-style"><img src="./img/signOut-btn.png" alt="signout button"></button>
+        </div>
+    </div>
+
+    <!-- Instructions Panel -->
+    <div v-else-if="selectedView === 'instructions'">
+        <div class="game-wrapper">
+            <div class="game-area">
+                <img src="./img/instrucciones.png" alt="panel de instrucciones">
+                <button v-on:click="updateView('main-menu')" class="buttons-style button-exit"><img src="./img/exit-btn.png" alt="exit-btn"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lore Panel -->
+    <div v-else-if="selectedView === 'lore'">
+        <div class="game-wrapper">
+            <div class="game-area">
+                <img src="./img/Lore.png" alt="panel de instrucciones">
+                <button v-on:click="updateView('main-menu')" class="buttons-style button-exit"><img src="./img/exit-btn.png" alt="exit-btn"></button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Game Panel -->
+    <div v-else-if="selectedView === 'game-panel'">
+        <farm-panel 
+        :plots-farm="plotsFarm"
+        @tool-selected='selectTool' 
+        @selected-view="updateView" ></farm-panel>
+    </div>
+
+    <!-- Cauldron Panel -->
+    <div v-else-if="selectedView === 'cauldron-panel'">
+        <cauldron-panel @select-tool='selectTool' @selected-view="updateView"></cauldron-panel>
+    </div>
+
+     <!-- Inventory Panel -->
+    <div v-else-if="selectedView === 'inventory-panel'">
+        <inventory-panel 
+        :inventory="inventory"
+        @select-tool='selectTool' 
+        @selected-view="updateView"></inventory-panel>
+    </div>
+
+    <!-- Store Panel -->
+    <div v-else-if="selectedView === 'store-panel'">
+        <store-panel
+        :items-store="itemsStore"
+        @select-tool='selectTool' 
+        @selected-view="updateView"></store-panel>
+    </div>
+    `
+});

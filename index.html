@@ -1,19 +1,45 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobby</title>
-    <link rel="stylesheet" href="./css/priuebas.css">
+    <link rel="stylesheet" href="https://use.typekit.net/frt0jxj.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- Importando Vue.js-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <title>RedLight - Farm</title>
 </head>
 
-<body>
+<body class="game-">
 
-    <div class="lobby">
-        <img src="./img/BackgroundPlay.png" alt="Background Play"> </img>
-        <button class="play-btn"><a href="signUp.html">PLAY</a></button>
+    <div id="app">
+        <views-game 
+        :selected-view="selectedView" @selected-view="updateView"
+        :active-tool="activeTool" @tool-selected="selectTool"
+        :plots-farm="plotsFarm"
+        :inventory="inventory"
+        :items-store="itemsStore"
+        ></views-game>
     </div>
+
+
+    <script src="./js/main.js"></script>
+    <script src="./js/components/views.js"></script>
+
+    <script src="./js/components/auth/loginPanel.js"></script>
+    <script src="./js/components/auth/signUpPanel.js"></script>
+
+    <script src="./js/components/game/gameButtons.js"></script>
+    <script src="./js/components/game/toolsButtons.js"></script>
+    <script src="./js/components/game/farmPanel.js"></script>
+    <script src="./js/components/game/storePanel.js"></script>
+    <script src="./js/components/game/cauldronPanel.js"></script>
+    <script src="./js/components/game/inventoryPanel.js"></script>
+
+    <script> const mountedApp = app.mount('#app'); </script>
 
 </body>
 
