@@ -5,18 +5,18 @@ const app = Vue.createApp({
             activeTool: null,
 
             plotsFarm:[
-                { id: 1, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 2, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 3, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 4, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 5, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 6, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 7, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 8, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 9, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 10, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 11, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
-                { id: 12, planted: true, stage: 3, image: './img/spideyFlower_stage3.png'},
+                { id: 1, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 2, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 3, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 4, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 5, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 6, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 7, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 8, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 9, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 10, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 11, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+                { id: 12, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
             ],
 
             inventory: [
@@ -58,9 +58,8 @@ const app = Vue.createApp({
             cash: 0,
 
             plantList: [
-                { id: 1, type: 'seed1', growthStage: 0, maxGrowthStage: 2, imgStages: ['./img/spideyFlower_stage1.png', './img/spideyFlower_stage2.png', './img/spideyFlower_stage3.png'] },
-                { id: 2, type: 'seed2', growthStage: 0, maxGrowthStage: 5, imgStages: ['./img/plant2_stage0.png', './img/plant2_stage1.png', './img/plant2_stage2.png', './img/plant2_stage3.png', './img/plant2_stage4.png', './img/plant2_stage5.png'] },
-                { id: 3, type: 'seed3', growthStage: 0, maxGrowthStage: 4, imgStages: ['./img/plant3_stage0.png', './img/plant3_stage1.png', './img/plant3_stage2.png', './img/plant3_stage3.png'] },
+                { id: 1, type: 'spideyFlower', imgStages: ['./img/spideyFlower_stage1.png', './img/spideyFlower_stage2.png', './img/spideyFlower_stage3.png'] },
+                { id: 2, type: 'squidPumpkin', imgStages: ['./img/squidPumpkin_stage1.png', './img/squidPumpkin_stage2.png', './img/squidPumpkin_stage3.png'] },
             ],
 
             cycleDayNight: 'night',
@@ -136,9 +135,51 @@ const app = Vue.createApp({
         }
         },
 
-        removePlant(){
-            
+        removePlant(plotId) {
+            if(this.activeTool !== "scythe") return;
+
+            if(this.plotsFarm.find(plot => plot.id === plotId)){
+                this.plotsFarm.find(plot => plot.id === plotId).planted = false;
+                this.plotsFarm.find(plot => plot.id === plotId).image = './img/plot_empty.png';
+            }
+
         },
 
+        plantInPlot(plotId, typePlant){
+           if(this.activeTool !== "plant") return;
+
+            console.log("Planting in plot:", plotId);
+
+            if(this.plotsFarm.find(plot => plot.id === plotId)){
+                this.plotsFarm.find(plot => plot.id === plotId).planted = true;
+                const plant = this.plantList.find(plant => plant.type === typePlant).imgStages[0]; // por ahora fija spideyFlower
+                this.plotsFarm.find(plot => plot.id === plotId).image = plant;
+                this.plotsFarm.find(plot => plot.id === plotId).stage=1;
+            } 
+        },
+
+        fertilizePlot(plotId, typePlant){
+            if(this.activeTool !== "fertilizer") return;
+
+            if(this.plotsFarm.find(plot => plot.id === plotId)){
+                const stagePlot = this.plotsFarm.find(plot => plot.id === plotId).stage;
+                if (stagePlot >= 3) return; // ya esta en la etapa maxima
+                const plant = this.plantList.find(plant => plant.type === typePlant).imgStages[stagePlot]; // por ahora fija spideyFlower
+                this.plotsFarm.find(plot => plot.id === plotId).image = plant;
+                this.plotsFarm.find(plot => plot.id === plotId).stage += 1;
+                this.plotsFarm.find(plot => plot.id === plotId).fertilized = true;
+
+            }
+        },
+
+        waterPlot(plotId){
+            if(this.activeTool !== "bucket") return;
+
+            if(this.plotsFarm.find(plot => plot.id === plotId)){
+                this.plotsFarm.find(plot => plot.id === plotId).water = true;
+            }
+
+            console.log("Watering plot:", plotId);
+        }
     }
 });

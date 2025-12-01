@@ -47,22 +47,18 @@ app.component('views-game', {
         }
         ,
 
-        tryRemovePlant(idex) {
-            // funciona si la herramienta esta activa 
-            if (this.activeTool !== "scythe") return;
+        removePlant(plotId) {
+            this.$emit("remove-plant", plotId);
+        },
 
-            // obtener la imagen 
-            const img = idex.currentTarget || idex.target;
-
-            // poner clase para la animacion y luego quitar el elemento
-            img.classList.add("removing");
-            setTimeout(() => {
-                // en vez de eliminar el nodo (que hace que el grid se reordene),
-                // ocultamos la imagen para que el espacio quede reservado.
-                img.classList.remove("removing");
-                img.style.visibility = "hidden"; // mantiene el espacio en el layout
-                img.style.pointerEvents = "none"; // evitar futuros clicks
-            }, 180);
+        plantInPlot(plotId, typePlant){ 
+            this.$emit("plant-in-plot", plotId, typePlant);
+        },
+        fertilizePlot(plotId, typePlant){
+            this.$emit("fertilize-plot", plotId, typePlant);
+        },
+        waterPlot(plotId){
+            this.$emit("water-plot", plotId);
         }
 
     },
@@ -127,7 +123,11 @@ app.component('views-game', {
         <farm-panel 
         :plots-farm="plotsFarm"
         @tool-selected='selectTool' 
-        @selected-view="updateView" ></farm-panel>
+        @selected-view="updateView"
+        @remove-plant="removePlant"
+        @plant-in-plot="plantInPlot"
+        @fertilize-plot="fertilizePlot"
+        @water-plot="waterPlot"
     </div>
 
     <!-- Cauldron Panel -->

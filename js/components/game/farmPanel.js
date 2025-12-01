@@ -20,7 +20,19 @@ app.component('farm-panel', {
         selectTool(tool) {
             this.$emit("tool-selected", tool);
             console.log("Tool selected:", tool);
-        }
+        },
+        removePlant(plotId) {
+            this.$emit("remove-plant", plotId);
+        },
+        plantInPlot(plotId, typePlant) {
+            this.$emit("plant-in-plot", plotId, typePlant);
+        },
+        fertilizePlot(plotId, typePlant){
+            this.$emit("fertilize-plot", plotId, typePlant);
+        },
+        waterPlot(plotId){
+            this.$emit("water-plot", plotId);
+        },
     },
     template: /*html*/`
     <!-- Game Wrapper -->
@@ -33,9 +45,12 @@ app.component('farm-panel', {
                     <div v-for="plot in plotsFarm" :key="plot.id">
                         <img 
                         :src="plot.image" 
-                        v-if="plot.planted"
                         class="plants" 
                         :alt="'Planta en plot ' + plot.id"
+                        @click="plantInPlot(plot.id, 'spideyFlower')"
+                        @click="fertilizePlot(plot.id, 'spideyFlower')"
+                        @click="removePlant(plot.id)"
+                        @click="waterPlot(plot.id)"
                         >
                     </div>
                     <!--<div ><img class="plants" src="./img/spideyFlower_stage3.png" alt="" @click="tryRemovePlant"></div>-->
