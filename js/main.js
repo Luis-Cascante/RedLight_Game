@@ -4,19 +4,19 @@ const app = Vue.createApp({
             selectedView: "lobby",
             activeTool: null,
 
-            plotsFarm:[
-                { id: 1, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 2, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 3, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 4, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 5, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 6, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 7, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 8, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 9, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 10, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 11, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
-                { id: 12, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png'},
+            plotsFarm: [
+                { id: 1, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 2, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 3, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 4, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 5, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 6, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 7, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 8, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 9, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 10, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 11, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
+                { id: 12, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
             ],
 
             inventory: [
@@ -69,19 +69,23 @@ const app = Vue.createApp({
                 { id: 3, item: 'dragonScale', quantity: 5, image: './img/item-dragonScale.png' },
             ],
 
-            potionList:[
-                { id: 1, name: 'namePotion1', price: 50, ingredients: [ 
-                    { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
-                    { id: 2, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' }
-                 ], image: './img/item-potion1.png' },
+            potionList: [
+                {
+                    id: 1, name: 'namePotion1', price: 50, ingredients: [
+                        { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
+                        { id: 2, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' }
+                    ], image: './img/item-potion1.png'
+                },
                 { id: 2, name: 'namePotion2', price: 50, ingredients: [], image: './img/item-potion2.png' },
                 { id: 3, name: 'namePotion3', price: 50, ingredients: [], image: './img/item-potion3.png' },
                 { id: 4, name: 'namePotion4', price: 50, ingredients: [], image: './img/item-potion4.png' },
             ],
-            potionSelected: { id: 1, name: 'namePotion1', price: 50, ingredients: [ 
-                { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
-                { id: 2, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' }
-            ], image: './img/item-potion1.png' },
+            potionSelected: {
+                id: 1, name: 'namePotion1', price: 50, ingredients: [
+                    { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
+                    { id: 2, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' }
+                ], image: './img/item-potion1.png'
+            },
 
             cycleDayNight: 'night',
 
@@ -89,9 +93,10 @@ const app = Vue.createApp({
                 { description: 'Plant 5 seed1', completed: false },
                 { description: 'Harvest 3 seed2', completed: false },
                 { description: 'Earn 100 cash', completed: false }
-            ]
+            ],
 
-
+            // array vacio de usuarios registrados
+            registeredUsers: []
 
         };
     },
@@ -99,6 +104,15 @@ const app = Vue.createApp({
         updateView(selectedView) {
             this.selectedView = selectedView;
             return this.selectedView;
+        },
+
+        registerUser(username, email, password) {
+            //el .push agrega el nuevo usuario al array vacio
+            this.registeredUsers.push({ username, email, password });
+        },
+
+        validateUser(email, password) {
+            return this.registeredUsers.find(user => user.email === email && user.password === password);
         },
 
         selectTool(tool) {
@@ -153,36 +167,36 @@ const app = Vue.createApp({
                     this.activeTool = null;
                     document.body.style.cursor = "auto";
                     break;
-        }
+            }
         },
 
         removePlant(plotId) {
-            if(this.activeTool !== "scythe") return;
+            if (this.activeTool !== "scythe") return;
 
-            if(this.plotsFarm.find(plot => plot.id === plotId)){
+            if (this.plotsFarm.find(plot => plot.id === plotId)) {
                 this.plotsFarm.find(plot => plot.id === plotId).planted = false;
                 this.plotsFarm.find(plot => plot.id === plotId).image = './img/plot_empty.png';
             }
 
         },
 
-        plantInPlot(plotId, typePlant){
-           if(this.activeTool !== "plant") return;
+        plantInPlot(plotId, typePlant) {
+            if (this.activeTool !== "plant") return;
 
             console.log("Planting in plot:", plotId);
 
-            if(this.plotsFarm.find(plot => plot.id === plotId)){
+            if (this.plotsFarm.find(plot => plot.id === plotId)) {
                 this.plotsFarm.find(plot => plot.id === plotId).planted = true;
                 const plant = this.plantList.find(plant => plant.type === typePlant).imgStages[0]; // por ahora fija spideyFlower
                 this.plotsFarm.find(plot => plot.id === plotId).image = plant;
-                this.plotsFarm.find(plot => plot.id === plotId).stage=1;
-            } 
+                this.plotsFarm.find(plot => plot.id === plotId).stage = 1;
+            }
         },
 
-        fertilizePlot(plotId, typePlant){
-            if(this.activeTool !== "fertilizer") return;
+        fertilizePlot(plotId, typePlant) {
+            if (this.activeTool !== "fertilizer") return;
 
-            if(this.plotsFarm.find(plot => plot.id === plotId)){
+            if (this.plotsFarm.find(plot => plot.id === plotId)) {
                 const stagePlot = this.plotsFarm.find(plot => plot.id === plotId).stage;
                 if (stagePlot >= 3) return; // ya esta en la etapa maxima
                 const plant = this.plantList.find(plant => plant.type === typePlant).imgStages[stagePlot]; // por ahora fija spideyFlower
@@ -193,21 +207,21 @@ const app = Vue.createApp({
             }
         },
 
-        waterPlot(plotId){
-            if(this.activeTool !== "bucket") return;
+        waterPlot(plotId) {
+            if (this.activeTool !== "bucket") return;
 
-            if(this.plotsFarm.find(plot => plot.id === plotId)){
+            if (this.plotsFarm.find(plot => plot.id === plotId)) {
                 this.plotsFarm.find(plot => plot.id === plotId).water = true;
             }
 
             console.log("Watering plot:", plotId);
         },
 
-        selectPotion(potion){
+        selectPotion(potion) {
             this.potionSelected = potion;
         },
 
-        selectItemStore(item){
+        selectItemStore(item) {
             this.itemSelected = item;
         }
     }
