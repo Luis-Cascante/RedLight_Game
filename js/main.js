@@ -6,6 +6,8 @@ const app = Vue.createApp({
             selectedView: "lobby",
             activeTool: null,
 
+            currentUser: JSON.parse(localStorage.getItem('currentUser')) || null,
+
             plotsFarm: [
                 { id: 1, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
                 { id: 2, planted: false, stage: 0, fertilized: false, water: false, image: './img/plot_empty.png' },
@@ -100,10 +102,18 @@ const app = Vue.createApp({
             // array vacio de usuarios registrados
             // registeredUsers: []
 
-            currentUser: null
+           
 
         };
     },
+
+    mounted() {
+        
+        if (this.currentUser) {
+            this.selectedView = 'main-menu';
+        }
+    },
+    
     methods: {
         updateView(selectedView) {
             this.selectedView = selectedView;
@@ -165,6 +175,8 @@ const app = Vue.createApp({
 
             this.currentUser = data.user;
 
+            localStorage.setItem('currentUser', JSON.stringify(data.user));
+
             return data.user;
 
         }catch (error) {
@@ -172,6 +184,14 @@ const app = Vue.createApp({
             return null;
 
         }
+        },
+
+        logout() {
+
+            this.currentUser = null;
+            localStorage.removeItem('currentUser');
+            this.selectedView = 'lobby';
+
         },
 
         selectTool(tool) {
