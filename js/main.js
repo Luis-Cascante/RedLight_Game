@@ -1,3 +1,5 @@
+const API_URL = "http://redlightstore.test/api";
+
 const app = Vue.createApp({
     data() {
         return {
@@ -96,7 +98,9 @@ const app = Vue.createApp({
             ],
 
             // array vacio de usuarios registrados
-            registeredUsers: []
+            // registeredUsers: []
+
+            currentUser: null
 
         };
     },
@@ -106,13 +110,68 @@ const app = Vue.createApp({
             return this.selectedView;
         },
 
-        registerUser(username, email, password) {
+        async registerUser(username, email, password) {
             //el .push agrega el nuevo usuario al array vacio
-            this.registeredUsers.push({ username, email, password });
+             // this.registeredUsers.push({ username, email, password });
+
+            try {
+                const response = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    if (response.status === 422){
+
+                        throw new Error(data.message || 'Error de validacion al registrar usuario');
+
+                    }
+                    throw new Error(data.message || 'Fallo en el servidor al registrar usuario');
+
+                }
+                return { success: true, user: data.user };
+            } catch (error) {
+                console.log("Fallo al llamar a la API de registro:", error.message);
+                return {error: error.message };
+            }
+
         },
 
-        validateUser(email, password) {
-            return this.registeredUsers.find(user => user.email === email && user.password === password);
+        async validateUser(email, password) {
+            //return this.registeredUsers.find(user => user.email === email && user.password === password);
+
+        try {
+
+            const response = await fetch(`${API_URL}/login`, {
+
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Credenciales incorrectas');
+            }
+
+            this.currentUser = data.user;
+
+            return data.user;
+
+        }catch (error) {
+            console.log("Fallo al llamar a la API de login:", error.message);
+            return null;
+
+        }
         },
 
         selectTool(tool) {

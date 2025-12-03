@@ -18,7 +18,7 @@ app.component('sign-up-panel', {
       this.$emit("selected-view", selectedView);
     },
 
-    signUp() {
+    async signUp() {
       this.errorMessage = "";
 
       if (!this.username || !this.email || !this.password) {
@@ -41,8 +41,14 @@ app.component('sign-up-panel', {
         return;
       }
 
+      const result = await this.$root.registerUser(this.username, this.email, this.password);
+
+      if (result.error) {
+        this.errorMessage = result.error;
+        return;
+      }
       // Registra el usuario mediante la funcion en main.js 
-      this.$root.registerUser(this.username, this.email, this.password);
+      
       this.updateView('login');
     }
   },

@@ -18,7 +18,7 @@ app.component('login-panel', {
       this.$emit("selected-view", selectedView);
     },
 
-    login() {
+    async login() {
       this.errorMessage = "";
 
       if (!this.email || !this.password) {
@@ -27,7 +27,7 @@ app.component('login-panel', {
       }
 
       // Valida el usuario mediante la funcion en main.js
-      const user = this.$root.validateUser(this.email, this.password);
+      const user = await this.$root.validateUser(this.email, this.password);
 
       // Si no existe el usuario, muestra error
       if (!user) {
