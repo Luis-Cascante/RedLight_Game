@@ -7,7 +7,7 @@ app.component('sign-up-panel', {
   },
   data() {
     return {
-      username: "",
+      name: "",
       email: "",
       password: "",
       errorMessage: ""
@@ -21,12 +21,12 @@ app.component('sign-up-panel', {
     async signUp() {
       this.errorMessage = "";
 
-      if (!this.username || !this.email || !this.password) {
+      if (!this.name || !this.email || !this.password) {
         this.errorMessage = "Please fill in all fields";
         return;
       }
 
-      if (this.username.length < 3) {
+      if (this.name.length < 3) {
         this.errorMessage = "Username must be at least 3 characters";
         return;
       }
@@ -41,7 +41,7 @@ app.component('sign-up-panel', {
         return;
       }
 
-      const result = await this.$root.registerUser(this.username, this.email, this.password);
+      const result = await this.$root.registerUser(this.name, this.email, this.password);
 
       if (result.error) {
         this.errorMessage = result.error;
@@ -58,7 +58,7 @@ app.component('sign-up-panel', {
 
       <div class="auth-row">
         <label for="username">User Name</label>
-        <input id="username" type="text" placeholder="Enter your name" v-model="username">
+        <input id="username" type="text" placeholder="Enter your name" v-model="name">
       </div>
 
       <div class="auth-row">

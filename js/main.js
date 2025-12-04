@@ -1,10 +1,12 @@
-const API_URL = "http://redlightstore.test/api";
+const API_URL = "http://127.0.0.1:8000/api";
 
 const app = Vue.createApp({
     data() {
         return {
             selectedView: "lobby",
             activeTool: null,
+
+            server: API_URL,
 
             currentUser: JSON.parse(localStorage.getItem('currentUser')) || null,
 
@@ -120,17 +122,18 @@ const app = Vue.createApp({
             return this.selectedView;
         },
 
-        async registerUser(username, email, password) {
+        async registerUser(name, email, password) {
             //el .push agrega el nuevo usuario al array vacio
              // this.registeredUsers.push({ username, email, password });
 
             try {
-                const response = await fetch(`${API_URL}/register`, {
+                const response = await fetch(this.server+`/signup`, {
                     method: 'POST',
                     headers: {
+                        
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ username, email, password })
+                    body: JSON.stringify({ name, email, password })
                 });
 
                 const data = await response.json();
@@ -157,7 +160,7 @@ const app = Vue.createApp({
 
         try {
 
-            const response = await fetch(`${API_URL}/login`, {
+            const response = await fetch(this.server+`/login`, {
 
                 method: 'POST',
                 headers: {
