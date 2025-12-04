@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/api";
+const API_URL = "redlightstore.test/api";
 
 const app = Vue.createApp({
     data() {
@@ -155,16 +155,17 @@ const app = Vue.createApp({
 
         },
 
-        async validateUser(email, password) {
+         async validateUser(email, password) {
             //return this.registeredUsers.find(user => user.email === email && user.password === password);
 
         try {
 
-            const response = await fetch(this.server+`/login`, {
+            const response = await fetch(this.server+'/login', {
 
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                   
                 },
                 body: JSON.stringify({ email, password })
 
@@ -175,6 +176,9 @@ const app = Vue.createApp({
             if (!response.ok) {
                 throw new Error(data.message || 'Credenciales incorrectas');
             }
+            
+
+            localStorage.setItem('user_token', data.access_token);
 
             this.currentUser = data.user;
 

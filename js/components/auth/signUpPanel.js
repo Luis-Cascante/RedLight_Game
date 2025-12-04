@@ -57,8 +57,8 @@ app.component('sign-up-panel', {
       <h2>Create account</h2>
 
       <div class="auth-row">
-        <label for="username">User Name</label>
-        <input id="username" type="text" placeholder="Enter your name" v-model="name">
+        <label for="name">User Name</label>
+        <input id="name" type="text" placeholder="Enter your name" v-model="name">
       </div>
 
       <div class="auth-row">
