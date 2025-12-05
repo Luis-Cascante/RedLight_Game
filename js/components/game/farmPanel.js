@@ -57,6 +57,8 @@ app.component('farm-panel', {
 
             <!-- Background Image -->
             <div class="game-area">
+                <!-- Day/Night cycle placed inside farm's game-area so its absolute positioning matches the game background -->
+                <day-night-cycle v-if="$root.selectedView === 'game-panel'" @cycle-change="$emit('cycle-change', $event)"></day-night-cycle>
                 <img src="./img/GameLayer.png" alt="Game Layer">
                 <div class="farm-panel">
                     <div v-for="plot in plotsFarm" :key="plot.id" class="plot-container">

@@ -4,10 +4,6 @@ app.component('views-game', {
             type: String,
             default: "lobby",
         },
-        cash:{
-            type: Number,
-            required: true
-        },
         activeTool: {
             type: String,
             default: null
@@ -49,6 +45,15 @@ app.component('views-game', {
             required: true,
         },
     },
+    data() {
+        return {
+            // Estado del ciclo día/noche recibido desde el componente hijo
+            cycleStatus: {
+                isDay: true,
+                progressPercent: 0
+            }
+        };
+    },
     computed: {
 
     },
@@ -64,6 +69,15 @@ app.component('views-game', {
             }
 
             this.$emit("selected-view", selectedView)
+        },
+
+        // Recibe las emisiones del componente day-night-cycle
+        handleCycleUpdate(cycle) {
+            // Aseguramos que siempre haya valores numéricos válidos
+            this.cycleStatus = {
+                isDay: !!cycle.isDay,
+                progressPercent: Number(cycle.progressPercent) || 0
+            };
         },
 
 
@@ -169,15 +183,17 @@ app.component('views-game', {
     <!-- Game Panel -->
     <div v-else-if="selectedView === 'game-panel'">
         <farm-panel 
-        :plots-farm="plotsFarm"
-        :active-tool="activeTool"
-        :selected-seed="selectedSeed"
-        @tool-selected='selectTool' 
-        @selected-view="updateView"
-        @remove-plant="removePlant"
-        @plant-in-plot="plantInPlot"
-        @fertilize-plot="fertilizePlot"
-        @water-plot="waterPlot"></farm-panel>
+            :plots-farm="plotsFarm"
+            :active-tool="activeTool"
+            :selected-seed="selectedSeed"
+            @tool-selected='selectTool' 
+            @selected-view="updateView"
+            @remove-plant="removePlant"
+            @plant-in-plot="plantInPlot"
+            @fertilize-plot="fertilizePlot"
+            @water-plot="waterPlot"
+            @cycle-change="handleCycleUpdate"
+        ></farm-panel>
     </div>
 
     <!-- Cauldron Panel -->
