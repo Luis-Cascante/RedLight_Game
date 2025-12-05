@@ -399,6 +399,92 @@
         height: 40px;
     }
 
+    /* ==================================================
+       Day / Night Cycle styles
+       - Uses CSS variable --progress (percentage) set by JS
+       - Toggles .night on the root to switch colors
+    ================================================== */
+    .day-night-root {
+        /* Positioned above .game-area but without an extra background to avoid layout shifts */
+        position: absolute;
+        top: -2.25rem; /* slightly less offset so it doesn't push visuals */
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 2rem);
+        max-width: calc(1250px - 2rem);
+        padding: 0; /* remove padding so it doesn't expand container */
+        border-radius: 0.5rem;
+        background: transparent; /* absolutely no background */
+        z-index: 3; /* above game elements */
+    }
+
+    .dn-track {
+        position: relative;
+        height: 2rem; /* slightly smaller to avoid covering game border */
+        border-radius: 9999px;
+        overflow: visible;
+        background-color: transparent; /* remove background so nothing covers the game */
+    }
+
+    .dn-bar {
+        height: 100%;
+        width: var(--progress, 0%);
+        border-radius: 9999px;
+        background-color: rgba(255, 251, 0, 0.95); /* yellow (día) */
+        box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        transition: width 0.12s linear, background-color 0.3s ease, box-shadow 0.2s ease;
+    }
+
+    .dn-time-icon {
+        position: absolute;
+        top: 50%;
+        left: var(--progress, 0%);
+        transform: translate(-50%, -50%);
+        height: 2.5rem;
+        width: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        border: 3px solid rgba(255,255,255,0.9);
+        z-index: 5;
+        transition: left 0.12s linear;
+    }
+
+    .dn-time-icon svg { width: 1.25rem; height: 1.25rem; }
+
+    .status-text {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.875rem;
+        z-index: 10;
+        color: #1f2937; /* gray-800 */
+        pointer-events: none;
+    }
+
+    .day-night-root.night .dn-bar {
+        background-color: #4f46e5; /* indigo-600 (noche) */
+    }
+
+    .day-night-root.night .status-text {
+        color: #ffffff;
+    }
+
+    .sun-icon { color: #f59e0b; fill: #fef3c7; }
+    .moon-icon { color: #374151; fill: #9ca3af; }
+    .moon-icon.hidden, .sun-icon.hidden { display: none; }
+
+    /* small screens adjustments */
+    @media (max-width: 640px) {
+        .day-night-root { max-width: 100%; margin: 0.75rem; }
+        .dn-time-icon { height: 2rem; width: 2rem; }
+    }
     .item-buy-img {
         width: 100px;
         height: auto;
