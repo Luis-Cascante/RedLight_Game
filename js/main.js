@@ -33,10 +33,10 @@ const app = Vue.createApp({
                 { id: 5, item: 'potion4', quantity: 1, image: './img/item-potion4.png' },
                 { id: 6, item: 'potion5', quantity: 1, image: './img/item-potion5.png' },
                 { id: 7, item: 'potion6', quantity: 1, image: './img/item-potion6.png' },
-                { id: 8, item: 'item1', quantity: 1, image: './img/item1.png' },
-                { id: 9, item: 'item2', quantity: 1, image: './img/item2.png' },
-                { id: 10, item: 'item3', quantity: 1, image: './img/item3.png' },
-                { id: 11, item: 'item4', quantity: 1, image: './img/item4.png' },
+                { id: 8, item: 'item 1', quantity: 1, image: './img/item1.png' },
+                { id: 9, item: 'item 2', quantity: 1, image: './img/item2.png' },
+                { id: 10, item: 'item 3', quantity: 1, image: './img/item3.png' },
+                { id: 11, item: 'item 4', quantity: 1, image: './img/item4.png' },
                 { id: 12, item: 'spideyFlower', quantity: 5, image: './img/seed2.png', type: 'seed' },
                 { id: 13, item: 'squidPumpkin', quantity: 5, image: './img/seed1.png', type: 'seed' },
                 { id: 14, item: 'plantaPiranha', quantity: 5, image: './img/seed3.png', type: 'seed' },
@@ -75,47 +75,47 @@ const app = Vue.createApp({
 
             ingredientsList: [
                 { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
-                { id: 2, item: 'item1', quantity: 1, image: './img/item1.png' },
-                { id: 3, item: 'item2', quantity: 1, image: './img/item2.png' },
-                { id: 4, item: 'item3', quantity: 1, image: './img/item3.png' },
-                { id: 5, item: 'item4', quantity: 1, image: './img/item4.png' }
+                { id: 2, item: 'item 1', quantity: 1, image: './img/item1.png' },
+                { id: 3, item: 'item 2', quantity: 1, image: './img/item2.png' },
+                { id: 4, item: 'item 3', quantity: 1, image: './img/item3.png' },
+                { id: 5, item: 'item 4', quantity: 1, image: './img/item4.png' }
             ],
 
             potionList: [
                 {
                     id: 1, name: 'Mysterious Potion', price: 1000, ingredients: [
                         { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
-                        { id: 2, item: 'item1', quantity: 3, image: './img/item1.png' },
-                        { id: 3, item: 'item2', quantity: 2, image: './img/item2.png' }
+                        { id: 2, item: 'item 1', quantity: 3, image: './img/item1.png' },
+                        { id: 3, item: 'item 2', quantity: 2, image: './img/item2.png' }
                     ], image: './img/item-potion1.png'
                 },
                 {
                     id: 2, name: 'Healing Potion', price: 250, ingredients: [
-                        { id: 1, item: 'item1', quantity: 4, image: './img/item1.png' },
-                        { id: 2, item: 'item3', quantity: 2, image: './img/item3.png' }
+                        { id: 1, item: 'item 1', quantity: 4, image: './img/item1.png' },
+                        { id: 2, item: 'item 3', quantity: 2, image: './img/item3.png' }
                     ], image: './img/item-potion2.png'
                 },
                 {
                     id: 3, name: 'Resistance Potion', price: 80, ingredients: [
                         { id: 1, item: 'spiderweb', quantity: 3, image: './img/item-spiderweb.png' },
-                        { id: 2, item: 'item2', quantity: 3, image: './img/item2.png' }
+                        { id: 2, item: 'item 2', quantity: 3, image: './img/item2.png' }
                     ], image: './img/item-potion3.png'
                 },
                 {
                     id: 4, name: 'Speed Potion', price: 125, ingredients: [
-                        { id: 1, item: 'item3', quantity: 3, image: './img/item3.png' },
-                        { id: 2, item: 'item4', quantity: 2, image: './img/item4.png' }
+                        { id: 1, item: 'item 3', quantity: 3, image: './img/item3.png' },
+                        { id: 2, item: 'item 4', quantity: 2, image: './img/item4.png' }
                     ], image: './img/item-potion4.png'
                 },
                 {
                     id: 5, name: 'Growth Potion', price: 150, ingredients: [
-                        { id: 1, item: 'item2', quantity: 4, image: './img/item2.png' },
-                        { id: 2, item: 'item4', quantity: 3, image: './img/item4.png' }
+                        { id: 1, item: 'item 2', quantity: 4, image: './img/item2.png' },
+                        { id: 2, item: 'item 4', quantity: 3, image: './img/item4.png' }
                     ], image: './img/item-potion5.png'
                 },
                 {
                     id: 6, name: 'Water Potion', price: 25, ingredients: [
-                        { id: 1, item: 'item1', quantity: 2, image: './img/item1.png' },
+                        { id: 1, item: 'item 1', quantity: 2, image: './img/item1.png' },
                         { id: 2, item: 'spiderweb', quantity: 2, image: './img/item-spiderweb.png' }
                     ], image: './img/item-potion6.png'
                 }
@@ -124,8 +124,8 @@ const app = Vue.createApp({
             potionSelected: {
                 id: 1, name: 'Mysterious Potion', price: 1000, ingredients: [
                     { id: 1, item: 'spiderweb', quantity: 5, image: './img/item-spiderweb.png' },
-                    { id: 2, item: 'item1', quantity: 3, image: './img/item1.png' },
-                    { id: 3, item: 'item2', quantity: 2, image: './img/item2.png' }
+                    { id: 2, item: 'item 1', quantity: 3, image: './img/item1.png' },
+                    { id: 3, item: 'item 2', quantity: 2, image: './img/item2.png' }
                 ], image: './img/item-potion1.png'
             },
 
@@ -819,6 +819,98 @@ const app = Vue.createApp({
                 return { success: true, message: "Successful sale!" };
             } catch (error) {
                 console.log("Error selling product:", error.message);
+            }
+        },
+
+        // ============ CAULDRON / POTION BREWING ============
+        async brewPotion(potion) {
+            console.log("Attempting to brew potion:", potion.name);
+            try {
+                // Validación 1: verificar que el usuario existe
+                if (!this.currentUser) {
+                    console.log("User not logged in");
+                    return { error: "You must log in to brew potions" };
+                }
+
+                // Validación 2: verificar que el objeto potion es válido
+                if (!potion || !potion.id || !potion.ingredients || !Array.isArray(potion.ingredients)) {
+                    console.log("Invalid potion object");
+                    return { error: "Invalid potion object" };
+                }
+
+                // Validación 3: verificar que la poción tiene ingredientes
+                if (potion.ingredients.length === 0) {
+                    console.log("Potion has no ingredients");
+                    return { error: "This potion has no ingredients" };
+                }
+
+                // ===== NUEVO: CARGAR INVENTARIO DEL SERVIDOR ANTES DE VALIDAR =====
+                try {
+                    const token = localStorage.getItem('user_token');
+                    const response = await fetch(this.server + '/inventory', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + token
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.inventory = data.inventory || this.inventory;
+                        console.log("Inventory loaded from server:", this.inventory);
+                    }
+                } catch (error) {
+                    console.log("Warning: Could not load inventory from server:", error.message);
+                    // Continúa con el inventario local si falla
+                }
+                // =====================================================
+
+                // Validación 4: verificar que tiene todos los ingredientes en cantidades suficientes
+                for (const ingredient of potion.ingredients) {
+                    const inventoryItem = this.inventory.find(i => i.item === ingredient.item);
+                    
+                    if (!inventoryItem) {
+                        console.log("Missing ingredient:", ingredient.item);
+                        return { error: `You don't have the required ingredient: ${ingredient.item}` };
+                    }
+
+                    if (inventoryItem.quantity < ingredient.quantity) {
+                        console.log(`Insufficient quantity of ${ingredient.item}. Need: ${ingredient.quantity}, Have: ${inventoryItem.quantity}`);
+                        return { error: `Insufficient quantity of ${ingredient.item}. You need ${ingredient.quantity}, you have ${inventoryItem.quantity}` };
+                    }
+                }
+
+                // Obtener token
+                const token = localStorage.getItem('user_token');
+                if (!token) {
+                    console.log("No token found");
+                    return { error: "Authentication token not found" };
+                }
+
+                // Realizar solicitud al servidor
+                const response = await fetch(this.server + '/cauldron/brew/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
+                    },
+                    body: JSON.stringify({ potion_id: potion.id })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Error brewing potion');
+                }
+
+                console.log("Potion brewed successfully");
+                this.cash = data.balance || this.cash;
+                this.loadInventory();
+                return { success: true, message: `${potion.name} brewed successfully!` };
+            } catch (error) {
+                console.log("Error brewing potion:", error.message);
+                return { error: error.message };
             }
         }
     }

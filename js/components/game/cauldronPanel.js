@@ -27,6 +27,10 @@ app.component('cauldron-panel', {
         },
         selectPotion(potion) {
             this.$emit("potion-selected", potion);
+        },
+        brewPotion(potion) {
+            this.$emit("brew-potion", potion);
+            console.log("Brewing potion:", potion, this.potionSelected);
         }
 
     },
@@ -64,7 +68,7 @@ app.component('cauldron-panel', {
                                 <p class="ingrediente-qty">5</p>
                             </div>-->
                         </div>
-                        <button class="button-cauldron">Produce</button>
+                        <button class="button-cauldron" @click="brewPotion(potionSelected)">Produce</button>
                     </div>
                     <img class="potion-selected" :src="potionSelected.image" :alt="potionSelected.name">
                 </div>

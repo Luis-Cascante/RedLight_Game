@@ -121,6 +121,10 @@ app.component('views-game', {
             quantity: item.quantity || 1
             });
             console.log("Product sold:", item);
+        },
+        brewPotion(potion) {
+            this.$emit("brew-potion", potion);
+            console.log("Brewing potion:", potion);
         }
 
     },
@@ -204,6 +208,7 @@ app.component('views-game', {
         :ingredients-list="ingredientsList" 
         @selected-view="updateView"
         @potion-selected="selectPotion"
+        @brew-potion="brewPotion"
         ></cauldron-panel>
     </div>
 
