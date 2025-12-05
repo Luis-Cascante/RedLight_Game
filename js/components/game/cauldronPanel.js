@@ -72,7 +72,11 @@ app.component('cauldron-panel', {
         </div>
 
             <!-- Buttons Panel -->
-             <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
+             <game-buttons 
+            @select-tool='selectTool' 
+            @selected-view="updateView"
+            :cash="$root.cash"
+            ></game-buttons>
         </div>
     `
 });

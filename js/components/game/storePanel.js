@@ -63,7 +63,11 @@ app.component('store-panel',{
 
         <!-- Buttons Panel -->
 
-        <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
+        <game-buttons 
+            @select-tool='selectTool' 
+            @selected-view="updateView"
+            :cash="$root.cash"
+            ></game-buttons>
            
             
             <!-- Tools Panel (contenedor separado) 

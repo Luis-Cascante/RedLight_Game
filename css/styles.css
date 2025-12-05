@@ -208,6 +208,7 @@
         align-items: center;
         gap: 10px;
         background-color: hsl(0, 2%, 10%);
+
         padding: 8px;
         border-radius: 10px;
         box-shadow: 0 0 10px hsl(0, 0%, 0%);
@@ -892,6 +893,32 @@
 
 .sell-btn:hover {
     background-color: hsl(0, 86%, 60%);
+}
+
+.game-buttons-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10rem;
+    gap: 20px;
+}
+
+.cash-display {
+    background-color: hsl(0, 2%, 10%);
+    border-radius: 17px;
+    box-shadow: 0 0 10px hsl(0, 0%, 0%);
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cash-display p {
+    font-family: "shlop", sans-serif;
+    font-size: 3rem;
+    color: hsl(225, 3%, 73%);
+    border:hsl(0, 0%, 0%)
 }
 
 @keyframes fadeIn {

@@ -63,7 +63,7 @@ const app = Vue.createApp({
 
             itemSelected: { id: 1, item: 'spiderweb', description: 'A sticky spiderweb', price: 50, image: './img/item-spiderweb.png' },
 
-            cash: 0,
+            cash: 110,
 
             plantList: [
                 { id: 1, type: 'spideyFlower', imgStages: ['./img/spideyFlower_stage1.png', './img/spideyFlower_stage2.png', './img/spideyFlower_stage3.png'] },

@@ -4,6 +4,10 @@ app.component('views-game', {
             type: String,
             default: "lobby",
         },
+        cash:{
+            type: Number,
+            required: true
+        },
         activeTool: {
             type: String,
             default: null

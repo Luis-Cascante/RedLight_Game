@@ -47,8 +47,11 @@ app.component('inventory-panel', {
         </div>
 
         <!-- Buttons Panel -->
-             <game-buttons @select-tool='selectTool' @selected-view="updateView"></game-buttons>
-
+             <game-buttons 
+            @select-tool='selectTool' 
+            @selected-view="updateView"
+            :cash="$root.cash"
+            ></game-buttons>
             <!-- Tools Panel (contenedor separado)
            <tools-buttons @select-tool='selectTool'></tools-buttons>-->
         </div>
