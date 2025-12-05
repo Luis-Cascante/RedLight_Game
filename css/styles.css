@@ -408,33 +408,35 @@
        - Toggles .night on the root to switch colors
     ================================================== */
     .day-night-root {
-        /* Positioned above .game-area but without an extra background to avoid layout shifts */
+        /* Positioned inside the top edge of .game-area so the track is inset like the target design */
         position: absolute;
-        top: -0.6rem; /* moved down a bit so it's visible at 100% and closer to the game edge */
+        top: 6px; /* place inside panel padding so the track is visible at 100% */
         left: 50%;
         transform: translateX(-50%);
-        width: calc(100% - 2rem);
-        max-width: calc(1250px - 2rem);
-        padding: 0; /* remove padding so it doesn't expand container */
+        width: calc(100% - 12px); /* small horizontal margin inside panel */
+        max-width: 1240px;
+        padding: 0;
         border-radius: 0.5rem;
-        background: transparent; /* absolutely no background */
-        z-index: 60; /* above game elements */
+        background: transparent;
+        z-index: 80; /* above game elements */
     }
 
     .dn-track {
         position: relative;
-        height: 1.4rem; 
+        height: 1.2rem; /* compact track */
         border-radius: 9999px;
         overflow: visible;
-        background-color: transparent; 
+        background-color: rgba(229,231,235,0.95); /* visible light track */
+        padding: 4px; /* inner padding to give pill effect */
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
     }
 
     .dn-bar {
         height: 100%;
         width: var(--progress, 0%);
         border-radius: 9999px;
-        background-color: rgba(255, 251, 0, 0.95); 
-        box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        background-color: rgba(79,70,229,0.95); /* indigo/purple */
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
         transition: width 0.12s linear, background-color 0.3s ease, box-shadow 0.2s ease;
     }
 
@@ -443,20 +445,20 @@
         top: 50%;
         left: var(--progress, 0%);
         transform: translate(-50%, -50%);
-        height: 1.8rem;
-        width: 1.8rem;
+        height: 1.6rem;
+        width: 1.6rem;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 9999px;
         background: #ffffff;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.12);
         border: 2px solid rgba(255,255,255,0.9);
-        z-index: 5;
-        transition: left 0.12s linear;
+        z-index: 90;
+        transition: left 0.12s linear, transform 0.12s ease;
     }
 
-    .dn-time-icon svg { width: 1rem; height: 1rem; }
+    .dn-time-icon svg { width: 0.95rem; height: 0.95rem; }
 
     .status-text {
         position: absolute;
