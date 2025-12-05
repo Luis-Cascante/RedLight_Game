@@ -1,4 +1,4 @@
-const API_URL = "redlightstore.test/api";
+const API_URL = "http://redlightstore.test/api";
 
 const app = Vue.createApp({
     data() {
