@@ -104,7 +104,7 @@ const app = Vue.createApp({
             // array vacio de usuarios registrados
             // registeredUsers: []
 
-           
+           // aqui andamios a ver si funciona con otro push 
 
         };
     },
