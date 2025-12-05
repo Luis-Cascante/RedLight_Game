@@ -8,11 +8,11 @@ app.component('cauldron-panel', {
             type: Object,
             required: true
         },
-        potionList:{
+        potionList: {
             type: Array,
             required: true,
         },
-        ingredientsList:{
+        ingredientsList: {
             type: Array,
             required: true,
         },
@@ -21,7 +21,11 @@ app.component('cauldron-panel', {
         updateView(selectedView) {
             this.$emit("selected-view", selectedView);
         },
-        selectPotion(potion){
+        selectTool(tool) {
+            this.$emit("tool-selected", tool);
+            console.log("Tool selected:", tool);
+        },
+        selectPotion(potion) {
             this.$emit("potion-selected", potion);
         }
 
@@ -62,7 +66,7 @@ app.component('cauldron-panel', {
                         </div>
                         <button class="button-cauldron">Produce</button>
                     </div>
-                    <img class="potion-selected" src="img/itemPocion.png" alt="">
+                    <img class="potion-selected" :src="potionSelected.image" :alt="potionSelected.name">
                 </div>
             </div>
         </div>

@@ -810,3 +810,98 @@
         box-shadow: 0 0 10px hsl(247, 23%, 8%);
     }
 }
+
+
+/* ============ PLOT CONTAINER & PLOT BADGES ============ */
+
+.plot-container {
+    position: relative;
+    display: inline-block;
+}
+
+.plot-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "shlop", sans-serif;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.plot-badge.ready {
+    background-color: hsl(268, 50%, 55%);
+}
+
+.plot-badge.fertilized {
+    background-color: hsl(45, 93%, 55%);
+}
+
+.plot-badge.watered {
+    background-color: hsl(268, 50%, 55%);
+}
+
+.plot-badge.needs-water {
+    background-color: hsl(45, 93%, 55%);
+    color: hsl(0, 0%, 20%);
+}
+
+.plot-badge.dead {
+    background-color: hsl(0, 86%, 52%);
+}
+
+.plot-badge.no-plant {
+    background-color: hsl(0, 0%, 50%);
+}
+
+.plot-badge.already-planted {
+    background-color: hsl(319, 76%, 52%);
+}
+
+.plot-badge.not-ready {
+    background-color: hsl(330, 81%, 60%);
+}
+
+.plot-badge.already-fertilized {
+    background-color: hsl(268, 76%, 45%);
+}
+
+.plot-badge.already-watered {
+    background-color: hsl(200, 76%, 45%);
+}
+
+.sell-btn {
+    background-color: hsl(0, 81%, 80%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 3px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "shlop", sans-serif;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.sell-btn:hover {
+    background-color: hsl(0, 86%, 60%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}

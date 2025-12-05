@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="./css/styles.css">
 
     <!-- Importando Vue.js-->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+     <!-- Al parecer se cayo unpkg justo 3:16 am, revisar despues.-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script> 
+    
     <title>RedLight - Farm</title>
 </head>
 
@@ -20,8 +22,10 @@
         :selected-view="selectedView" @selected-view="updateView"
         :active-tool="activeTool" @tool-selected="selectTool"
         :plots-farm="plotsFarm"
+        :selected-seed="selectedSeed"
         :potion-list="potionList"
         :potion-selected="potionSelected"
+        :ingredients-list="ingredientsList"
         :inventory="inventory"
         :items-store="itemsStore"
         :item-selected="itemSelected"
@@ -31,6 +35,9 @@
         @fertilize-plot="fertilizePlot"
         @water-plot="waterPlot"
         @potion-selected="selectPotion"
+        @purchase-item="purchaseItem"
+        @sell-product="sellProduct"
+        @inventory-item-selected="selectInventoryItem"
         ></views-game>
     </div>
 

@@ -8,6 +8,10 @@ app.component('views-game', {
             type: String,
             default: null
         },
+        selectedSeed: {
+            type: Object,
+            default: null
+        },
         potionSelected: {
             type: Object,
             required: true
@@ -24,15 +28,15 @@ app.component('views-game', {
             type: Array,
             required: true
         },
-        itemsStore:{
-                type: Array,
-                required: true,
-        },
-        potionList:{
+        itemsStore: {
             type: Array,
             required: true,
         },
-        ingredientsList:{
+        potionList: {
+            type: Array,
+            required: true,
+        },
+        ingredientsList: {
             type: Array,
             required: true,
         },
@@ -67,20 +71,23 @@ app.component('views-game', {
             this.$emit("remove-plant", plotId);
         },
 
-        plantInPlot(plotId, typePlant){ 
+        plantInPlot(plotId, typePlant) {
             this.$emit("plant-in-plot", plotId, typePlant);
         },
-        fertilizePlot(plotId, typePlant){
+        fertilizePlot(plotId, typePlant) {
             this.$emit("fertilize-plot", plotId, typePlant);
         },
-        waterPlot(plotId){
+        waterPlot(plotId) {
             this.$emit("water-plot", plotId);
         },
-        selectPotion(potion){
+        selectPotion(potion) {
             this.$emit("potion-selected", potion);
         },
-        selectItemStore(item){
+        selectItemStore(item) {
             this.$emit("itemstore-selected", item);
+        },
+        selectInventoryItem(item) {
+            this.$emit("inventory-item-selected", item);
         }
 
     },
@@ -144,6 +151,8 @@ app.component('views-game', {
     <div v-else-if="selectedView === 'game-panel'">
         <farm-panel 
         :plots-farm="plotsFarm"
+        :active-tool="activeTool"
+        :selected-seed="selectedSeed"
         @tool-selected='selectTool' 
         @selected-view="updateView"
         @remove-plant="removePlant"
@@ -167,7 +176,8 @@ app.component('views-game', {
     <div v-else-if="selectedView === 'inventory-panel'">
         <inventory-panel 
         :inventory="inventory" 
-        @selected-view="updateView"></inventory-panel>
+        @selected-view="updateView"
+        @inventory-item-selected="selectInventoryItem"></inventory-panel>
     </div>
 
     <!-- Store Panel -->

@@ -17,8 +17,15 @@ app.component('store-panel',{
         updateView(selectedView) {
             this.$emit("selected-view", selectedView);
         },
+        selectTool(tool) {
+            this.$emit("tool-selected", tool);
+            console.log("Tool selected:", tool);
+        },
         selectItemStore(item){
             this.$emit("itemstore-selected", item);
+        },
+        buyItem(){
+            this.$emit("purchase-item", this.itemSelected.id);
         }
     },
     template: /*html*/`
@@ -33,7 +40,7 @@ app.component('store-panel',{
                     <h2>{{ itemSelected?.item }} </h2>
                     <p class="item-description">{{ itemSelected?.description }}</p>
                     <div class="market-action">
-                        <button class="button-market">buy item</button>
+                        <button class="button-market" @click="buyItem">buy item</button>
                         <img class="coin-img" src="img/coin.png" alt="money">
                         <p class="price">{{ itemSelected?.price }}</p>
                     </div>
