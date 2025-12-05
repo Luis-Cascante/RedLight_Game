@@ -167,23 +167,18 @@ app.component('views-game', {
     
     <!-- Game Panel -->
     <div v-else-if="selectedView === 'game-panel'">
-        <div class="game-wrapper">
-            <div class="game-area">
-                
-                <day-night-cycle v-if="selectedView === 'game-panel'" @cycle-change="handleCycleUpdate"></day-night-cycle>
-
-                <farm-panel 
-                    :plots-farm="plotsFarm"
-                    :active-tool="activeTool"
-                    :selected-seed="selectedSeed"
-                    @tool-selected='selectTool' 
-                    @selected-view="updateView"
-                    @remove-plant="removePlant"
-                    @plant-in-plot="plantInPlot"
-                    @fertilize-plot="fertilizePlot"
-                    @water-plot="waterPlot"></farm-panel>
-            </div>
-        </div>
+        <farm-panel 
+            :plots-farm="plotsFarm"
+            :active-tool="activeTool"
+            :selected-seed="selectedSeed"
+            @tool-selected='selectTool' 
+            @selected-view="updateView"
+            @remove-plant="removePlant"
+            @plant-in-plot="plantInPlot"
+            @fertilize-plot="fertilizePlot"
+            @water-plot="waterPlot"
+            @cycle-change="handleCycleUpdate"
+        ></farm-panel>
     </div>
 
     <!-- Cauldron Panel -->

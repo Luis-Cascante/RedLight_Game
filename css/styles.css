@@ -133,10 +133,13 @@
         position: relative;
         display: inline-block;
         background-color: hsl(0, 2%, 10%);
-        padding: 10px;
+        /* slightly smaller padding so the panel doesn't overflow at 100% */
+        padding: 6px;
         border-radius: 10px;
         box-shadow: 0 0 10px hsl(0, 0%, 0%);
-        width: 1250px;
+        /* make the game area responsive and a bit smaller on narrow viewports */
+        width: min(1250px, 92vw);
+        max-width: 1250px;
         height: auto;
     }
 
@@ -407,7 +410,7 @@
     .day-night-root {
         /* Positioned above .game-area but without an extra background to avoid layout shifts */
         position: absolute;
-        top: -2.25rem; /* slightly less offset so it doesn't push visuals */
+        top: -0.6rem; /* moved down a bit so it's visible at 100% and closer to the game edge */
         left: 50%;
         transform: translateX(-50%);
         width: calc(100% - 2rem);
@@ -415,22 +418,22 @@
         padding: 0; /* remove padding so it doesn't expand container */
         border-radius: 0.5rem;
         background: transparent; /* absolutely no background */
-        z-index: 3; /* above game elements */
+        z-index: 60; /* above game elements */
     }
 
     .dn-track {
         position: relative;
-        height: 2rem; /* slightly smaller to avoid covering game border */
+        height: 1.4rem; 
         border-radius: 9999px;
         overflow: visible;
-        background-color: transparent; /* remove background so nothing covers the game */
+        background-color: transparent; 
     }
 
     .dn-bar {
         height: 100%;
         width: var(--progress, 0%);
         border-radius: 9999px;
-        background-color: rgba(255, 251, 0, 0.95); /* yellow (día) */
+        background-color: rgba(255, 251, 0, 0.95); 
         box-shadow: 0 6px 18px rgba(0,0,0,0.18);
         transition: width 0.12s linear, background-color 0.3s ease, box-shadow 0.2s ease;
     }
@@ -440,20 +443,20 @@
         top: 50%;
         left: var(--progress, 0%);
         transform: translate(-50%, -50%);
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 1.8rem;
+        width: 1.8rem;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 9999px;
         background: #ffffff;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-        border: 3px solid rgba(255,255,255,0.9);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        border: 2px solid rgba(255,255,255,0.9);
         z-index: 5;
         transition: left 0.12s linear;
     }
 
-    .dn-time-icon svg { width: 1.25rem; height: 1.25rem; }
+    .dn-time-icon svg { width: 1rem; height: 1rem; }
 
     .status-text {
         position: absolute;
