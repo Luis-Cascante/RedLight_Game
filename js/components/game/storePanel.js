@@ -24,8 +24,9 @@ app.component('store-panel',{
         selectItemStore(item){
             this.$emit("itemstore-selected", item);
         },
-        buyItem(){
+        purchaseItem(){
             this.$emit("purchase-item", this.itemSelected.id);
+            console.log("Item purchased:", this.itemSelected);
         }
     },
     template: /*html*/`
@@ -40,7 +41,7 @@ app.component('store-panel',{
                     <h2>{{ itemSelected?.item }} </h2>
                     <p class="item-description">{{ itemSelected?.description }}</p>
                     <div class="market-action">
-                        <button class="button-market" @click="buyItem">buy item</button>
+                        <button class="button-market" @click="purchaseItem">buy item</button>
                         <img class="coin-img" src="img/coin.png" alt="money">
                         <p class="price">{{ itemSelected?.price }}</p>
                     </div>

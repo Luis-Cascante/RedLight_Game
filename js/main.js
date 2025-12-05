@@ -44,6 +44,8 @@ const app = Vue.createApp({
                 { id: 16, item: 'fertilizer', quantity: 50, image: './img/FertilizerBtn.png', type: 'tool' },
             ],
 
+            itemInventorySelected: null,
+
             itemsStore: [
                 { id: 1, item: 'spiderweb', description: 'A sticky spiderweb', price: 50, image: './img/item-spiderweb.png' },
                 { id: 2, item: 'Mysterious Potion', description: 'A magical potion', price: 1000, image: './img/item-potion1.png' },
@@ -155,9 +157,9 @@ const app = Vue.createApp({
             // Las llamadas al API están comentadas por ahora
             // Ya que el servidor no está respondiendo correctamente
             // Los datos locales en data() se usan por defecto
-            // this.loadWalletBalance();
-            // this.loadInventory();
-            // this.loadStoreItems();
+            this.loadWalletBalance();
+            this.loadInventory();
+            this.loadStoreItems();
         }
     },
 
@@ -688,6 +690,7 @@ const app = Vue.createApp({
 
         // ============ SHOP / ECONOMY ============
         async purchaseItem(itemId) {
+            console.log("Attempting to purchase item with ID:", itemId);
             try {
                 // Validación: verificar que el usuario existe
                 if (!this.currentUser) {
@@ -744,8 +747,17 @@ const app = Vue.createApp({
             }
         },
 
+        handleSell(payload) {
+        // Desestructurar el objeto recibido
+        const itemId = payload.itemId;
+        const quantity = payload.quantity;
+    
+        // Llamar a la función principal de la API
+        this.sellProduct(itemId, quantity); 
+        },
 
         async sellProduct(itemId, quantity) {
+            console.log("Attempting to sell item with ID:", itemId, "Quantity:", quantity);
             try {
                 // Validación: verificar que el usuario existe
                 if (!this.currentUser) {

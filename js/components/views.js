@@ -24,6 +24,10 @@ app.component('views-game', {
             type: Object,
             required: true
         },
+        itemInventorySelected: {
+            type: Object,
+            required: true
+        },
         plotsFarm: {
             type: Array,
             required: true
@@ -92,6 +96,17 @@ app.component('views-game', {
         },
         selectInventoryItem(item) {
             this.$emit("inventory-item-selected", item);
+        },
+        purchaseItem(){
+            this.$emit("purchase-item", this.itemSelected.id);
+            console.log("Item purchased:", this.itemSelected);
+        },
+        sellProduct(item) {
+            this.$emit("sell-product", { 
+            itemId: item.id, 
+            quantity: item.quantity || 1
+            });
+            console.log("Product sold:", item);
         }
 
     },
@@ -181,7 +196,9 @@ app.component('views-game', {
         <inventory-panel 
         :inventory="inventory" 
         @selected-view="updateView"
-        @inventory-item-selected="selectInventoryItem"></inventory-panel>
+        @inventory-item-selected="selectInventoryItem"
+        @sell-product="$emit('sell-product', $event)"
+        ></inventory-panel>
     </div>
 
     <!-- Store Panel -->
@@ -190,7 +207,9 @@ app.component('views-game', {
         :items-store="itemsStore"
         :item-selected="itemSelected"
         @itemstore-selected="selectItemStore"
-        @selected-view="updateView"></store-panel>
+        @selected-view="updateView"
+        @purchase-item="purchaseItem"
+        ></store-panel>
     </div>
     `
 });

@@ -921,6 +921,14 @@
     border:hsl(0, 0%, 0%)
 }
 
+.item-quantity{
+    font-family: "shlop", sans-serif;
+    font-size: 2rem;
+    color: hsl(225, 3%, 73%);
+    border:hsl(0, 0%, 0%);
+    margin-right: 10px;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

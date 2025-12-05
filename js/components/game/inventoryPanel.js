@@ -8,6 +8,10 @@ app.component('inventory-panel', {
             type: Array,
             required: true
         },
+        itemInventorySelected: {
+            type: Object,
+            required: true
+        },
     },
     methods: {
         updateView(selectedView) {
@@ -20,8 +24,12 @@ app.component('inventory-panel', {
         selectInventoryItem(item) {
             this.$emit("inventory-item-selected", item);
         },
-        sellItem(item) {
-            this.$emit("sell-product", item.id, item.quantity || 1);
+        sellProduct(item) {
+            this.$emit("sell-product", { 
+            itemId: item.id, 
+            quantity: item.quantity || 1
+            });
+            console.log("Product sold:", item);
         }
     },
     template: /*html*/`
@@ -39,7 +47,7 @@ app.component('inventory-panel', {
                         :alt="item.item"
                         @click="selectInventoryItem(item)">
                         <span class="item-quantity">{{ item.quantity }}</span>
-                        <button class="sell-btn" @click="sellItem(item)">sell</button>
+                        <button class="sell-btn" @click="sellProduct(item)">sell</button>
                     </div>
                     <!--<img class="items-inventory" src="img/item-spiderweb.png" alt="">-->
                 </div>
